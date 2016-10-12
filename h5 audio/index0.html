@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.wrap{
+			margin-left: 200px;
+			margin-top: 100px;
+		}
+		#playBtn{
+			clear: both;
+		}
+		#playBtn,#pauseBtn,#stopBtn{
+			display: block;
+			width: 60px;
+			height: 30px;
+			background-color: #000;
+			color:#fff;
+			float: left;
+			text-align: center;
+			line-height: 30px;
+			margin-left: 20px;
+			margin-top: 20px;
+			cursor:pointer;
+		}
+		#progressBar{
+			width: 300px;
+			height: 20px;
+			border-radius: 20px;
+			background-color: #ccc;
+			margin-top: 20px;
+		}
+		#progress{
+			height: 20px;
+			border-radius:20px;
+			background-color: orange;
+			width:0%;
+		}
+		#time{
+			color:#000;
+			width: 200px;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<audio id="music" src="source/韩安旭 - 多幸运.mp3" controls>
+		<p>您的播放器不支持audio</p>
+		</audio>
+		<div id="progressBar">
+			<div id="progress"></div>
+		</div>
+		<span id="time">00:00/00:00</span>
+		<span id="playBtn">播放</span>
+		<span id="pauseBtn">暂停</span>
+		<span id="stopBtn">停止</span>
+	</div>
+	
+	<script>
+		function G(sId){
+			return document.getElementById(sId);
+		}
+		function totalTime(totalTime){
+			var minute = Math.floor(totalTime / 60);
+			var second = Math.floor(totalTime % 60);
+			if(minute < 10){
+				minute = "0" + minute;
+			}
+			if(second < 10){
+				second = '0' + second;
+			}
+			return minute + ":" + second;
+		}
+		window.onload = function(){
+			var music = G('music');
+			var playBtn = G('playBtn');
+			var pauseBtn = G('pauseBtn');
+			var stopBtn = G('stopBtn');
+			var progressBar = G('progressBar');
+			var progress = G('progress');
+			var time = G('time');
+			playBtn.addEventListener('click',function(){
+				music.play();
+			})
+			pauseBtn.addEventListener('click',function(){
+				music.pause();
+			})
+			stopBtn.addEventListener('click',function(){
+				music.currentTime = 0;
+				music.pause();
+			})
+			var musicCur = 0;
+			var musicDur = 0;
+			var progressBarW="";
+			// var timer = setInterval(go,1000);
+			// function go(){
+			// 	musicDur = music.duration;
+			// 	musicCur = music.currentTime;
+			
+			// 	var musicDurTime = totalTime(musicDur);
+			// 	var musicCurTime = totalTime(musicCur);
+		
+			// 	time.innerHTML = musicCurTime + '/' + musicDurTime;
+
+			// 	progressBar.style.width = "300px";
+			// 	progressBarW = progressBar.style.width;
+			// 	var percent = musicCur / musicDur;
+			// 	progress.style.width = parseInt(progressBarW) * percent + "px";
+			// }
+			// go();
+			// progressBar.addEventListener('click',function(e){				
+			// 	progress.style.width = (e.clientX - 200) + "px";
+			// 	music.currentTime = (e.clientX - 200) / parseInt(progressBarW) * musicDur;
+			// 	go();
+			// })
+			progressBar.addEventListener('click',function(e){				
+				progress.style.width = (e.clientX - 200) + "px";
+				
+				progressBar.style.width = "300px";
+				progressBarW = progressBar.style.width;
+
+				music.currentTime = (e.clientX - 200) / parseInt(progressBarW) * musicDur;
+			})
+			music.addEventListener('timeupdate',function(){
+				musicDur = music.duration;
+				musicCur = music.currentTime;
+			
+				var musicDurTime = totalTime(musicDur);
+				var musicCurTime = totalTime(musicCur);
+		
+				time.innerHTML = musicCurTime + '/' + musicDurTime;
+				
+				progress.style.width = (musicCur / musicDur)*100 + "%";
+			})
+		}
+		
+	</script>
+</body>
+</html>

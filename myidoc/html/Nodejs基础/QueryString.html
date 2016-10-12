@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li class="active"><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    Nodejs QueryString
+">
+    Nodejs QueryString
+</a><ul><li><a href="#t1querystring.stringify">querystring.stringify</a></li><li><a href="#t2querystring.parse">querystring.parse</a></li><li><a href="#t3querystring.escape">querystring.escape</a></li><li><a href="#t4querystring.unescape">querystring.unescape</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    Nodejs QueryString
+">
+    Nodejs QueryString
+ <a href="#t0
+    Nodejs QueryString
+"> # </a></h1>
+
+<p>QueryString &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x516C;&#x5171;&#x65B9;&#x6CD5;&#x53BB;&#x5904;&#x7406;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<h2 id="t1querystring.stringify">querystring.stringify <a href="#t1querystring.stringify"> # </a></h2>
+<p>&#x5C06;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</p>
+<pre><code class="lang-js">stringify&#x65B9;&#x6CD5;&#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;
+querystring.stringify({ foo: <span class="hljs-string">&apos;bar&apos;</span>, baz: [<span class="hljs-string">&apos;qux&apos;</span>, <span class="hljs-string">&apos;quux&apos;</span>], corge: <span class="hljs-string">&apos;&apos;</span> })
+<span class="hljs-comment">// returns &apos;foo=bar&amp;baz=qux&amp;baz=quux&amp;corge=&apos;</span>
+
+querystring.stringify({foo: <span class="hljs-string">&apos;bar&apos;</span>, baz: <span class="hljs-string">&apos;qux&apos;</span>}, <span class="hljs-string">&apos;;&apos;</span>, <span class="hljs-string">&apos;:&apos;</span>)
+<span class="hljs-comment">// returns &apos;foo:bar;baz:qux&apos;</span>
+</code></pre>
+<h2 id="t2querystring.parse">querystring.parse <a href="#t2querystring.parse"> # </a></h2>
+<p>&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-js">querystring.parse(<span class="hljs-string">&apos;foo=bar&amp;baz=qux&amp;baz=quux&amp;corge&apos;</span>)
+<span class="hljs-comment">// returns { foo: &apos;bar&apos;, baz: [&apos;qux&apos;, &apos;quux&apos;], corge: &apos;&apos; }</span>
+</code></pre>
+<h2 id="t3querystring.escape">querystring.escape <a href="#t3querystring.escape"> # </a></h2>
+<p>&#x8F6C;&#x8BD1;</p>
+<pre><code class="lang-js">querystring.escape(<span class="hljs-string">&apos;&#x54C8;&#x54C8;&apos;</span>);
+
+<span class="hljs-comment">// &apos;%E5%93%88%E5%93%88&apos;</span>
+</code></pre>
+<h2 id="t4querystring.unescape">querystring.unescape <a href="#t4querystring.unescape"> # </a></h2>
+<p>&#x53CD;&#x8F6C;&#x8BD1;</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

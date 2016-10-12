@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li class="active"><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    Nodejs URL
+">
+    Nodejs URL
+</a><ul><li><a href="#t1url.parse">url.parse</a></li><li><a href="#t2url.format">url.format</a></li><li><a href="#t3url.resolve">url.resolve</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    Nodejs URL
+">
+    Nodejs URL
+ <a href="#t0
+    Nodejs URL
+"> # </a></h1>
+
+<h2 id="t1url.parse">url.parse <a href="#t1url.parse"> # </a></h2>
+<p>&#x5C06;&#x4E00;&#x4E2A;URL&#x5730;&#x5740;&#x89E3;&#x6790;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-js">&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6267;&#x884C;node&#xFF0C;&#x8FDB;&#x53BB;node&#x73AF;&#x5883;
+~ node
+&gt; url.parse(<span class="hljs-string">&apos;http://www.imooc.com:8080/video/6710?from=newming&amp;course=node#floor1&apos;</span>);
+
+Url{
+    protocol : <span class="hljs-string">&apos;http:&apos;</span>,
+    slashes : <span class="hljs-literal">true</span>,
+    auth : <span class="hljs-literal">null</span>,
+    host : <span class="hljs-string">&apos;www.imooc.com&apos;</span>,
+    port : <span class="hljs-string">&apos;8080&apos;</span>,
+    hostname : <span class="hljs-string">&apos;www.imooc.com&apos;</span>,
+    hash : <span class="hljs-string">&apos;#floor1&apos;</span>,
+    search : <span class="hljs-string">&apos;?from=newming&amp;course=node&apos;</span>,
+    query : <span class="hljs-string">&apos;from=newming&amp;course=node&apos;</span>,
+    pathname : <span class="hljs-string">&apos;/video/6710&apos;</span>,
+    path : <span class="hljs-string">&apos;/video/6710?from=newming&amp;course=node&apos;</span>,
+    href : <span class="hljs-string">&apos;http://www.imooc.com/video/6710&apos;</span>
+}
+</code></pre>
+<h2 id="t2url.format">url.format <a href="#t2url.format"> # </a></h2>
+<p>&#x5C06;&#x4E00;&#x4E2A;URL&#x5BF9;&#x8C61;&#x683C;&#x5F0F;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;URL&#x5B57;&#x7B26;&#x4E32;</p>
+<pre><code class="lang-js">~ node
+&gt; url.format({
+    protocol : <span class="hljs-string">&apos;http:&apos;</span>,
+    slashes : <span class="hljs-literal">true</span>,
+    auth : <span class="hljs-literal">null</span>,
+    host : <span class="hljs-string">&apos;www.imooc.com&apos;</span>,
+    port : <span class="hljs-string">&apos;8080&apos;</span>,
+    hostname : <span class="hljs-string">&apos;www.imooc.com&apos;</span>,
+    hash : <span class="hljs-string">&apos;#floor1&apos;</span>,
+    search : <span class="hljs-string">&apos;?from=newming&amp;course=node&apos;</span>,
+    query : <span class="hljs-string">&apos;from=newming&amp;course=node&apos;</span>,
+    pathname : <span class="hljs-string">&apos;/video/6710&apos;</span>,
+    path : <span class="hljs-string">&apos;/video/6710?from=newming&amp;course=node&apos;</span>,
+    href : <span class="hljs-string">&apos;http://www.imooc.com/video/6710&apos;</span>
+})
+
+<span class="hljs-string">&apos;http://www.imooc.com:8080/video/6710?from=newming&amp;course=node#floor1&apos;</span>
+</code></pre>
+<h2 id="t3url.resolve">url.resolve <a href="#t3url.resolve"> # </a></h2>
+<p>url.resolve(from, to)</p>
+<p>Take a base URL, and a href URL, and resolve them as a browser would for an anchor tag. Examples:</p>
+<pre><code class="lang-js">url.resolve(<span class="hljs-string">&apos;/one/two/three&apos;</span>, <span class="hljs-string">&apos;four&apos;</span>)         <span class="hljs-comment">// &apos;/one/two/four&apos;</span>
+url.resolve(<span class="hljs-string">&apos;http://example.com/&apos;</span>, <span class="hljs-string">&apos;/one&apos;</span>)    <span class="hljs-comment">// &apos;http://example.com/one&apos;</span>
+url.resolve(<span class="hljs-string">&apos;http://example.com/one&apos;</span>, <span class="hljs-string">&apos;/two&apos;</span>) <span class="hljs-comment">// &apos;http://example.com/two&apos;</span>
+</code></pre>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

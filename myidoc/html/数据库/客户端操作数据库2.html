@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li class="active"><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    从客户端操作数据库
+">
+    从客户端操作数据库
+</a><ul><li><a href="#t1将数据保存到数据库中步骤">将数据保存到数据库中步骤</a></li><li><a href="#t2重定向　redirect　状态码302">重定向　redirect　状态码302</a></li><li><a href="#t3前后端分离架构">前后端分离架构</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <p></p><h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    &#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;
+">
+    &#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;
+ <a href="#t0
+    &#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;
+"> # </a></h1><p></p>
+<h2 id="t1&#x5C06;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6B65;&#x9AA4;">&#x5C06;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6B65;&#x9AA4; <a href="#t1&#x5C06;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6B65;&#x9AA4;"> # </a></h2>
+<p>&#xFF11;&#xFF0E;&#x786E;&#x4FDD;&#x6709;&#x6570;&#x636E; req.body.title</p>
+<p>&#xFF12;&#xFF0E;&#x5EFA;&#x7ACB;&#x4EE3;&#x7801;&#x548C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;</p>
+<pre><code>mongoose.connect(&apos;mongodb://localhost:27017/express-api&apos;);
+</code></pre><p>&#x8FD9;&#x6B65;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6B63;&#x786E;</p>
+<pre><code>db.on(&apos;error&apos;, console.error.bind(console, &apos;connection error:&apos;));
+db.once(&apos;open&apos;, function() {
+  console.log(&apos;success!&apos;);
+})
+</code></pre><p>&#xFF13;&#xFF0E;&#x521B;&#x5EFA;Schema(&#x5728;models/post.js,schema&#x4E3A;&#x6982;&#x8981;&#x7684;&#x610F;&#x601D;)</p>
+<pre><code>var mongoose = require(&apos;mongoose&apos;);
+var Schema = mongoose.Schema;
+
+var PostSchema = mongoose.Schema({
+   title: String,
+   tag:String,
+   content:String
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model(&apos;Post&apos;,PostSchema)
+</code></pre><p>&#xFF14;&#xFF0E;&#x521B;&#x5EFA;model</p>
+<pre><code>module.exports = mongoose.model(&apos;Post&apos;,PostSchema)
+//Post&#x9996;&#x5B57;&#x6BCD;&#x5C0F;&#x5199;&#xFF0C;&#x540E;&#x9762;&#x52A0;s&#xFF0C;&#x5C31;&#x662F;&#x96C6;&#x5408;&#x540D;&#xFF0C;&#x8FD9;&#x7684;&#x96C6;&#x5408;&#x540D;&#x4E3A;posts
+</code></pre><p>&#xFF15;&#xFF0E;&#x5BFC;&#x5165;Post model</p>
+<p>&#xFF16;&#xFF0E;&#x5B9E;&#x4F8B;&#x5316;Post model,&#x5F97;&#x5230;post&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<p>&#xFF17;&#xFF0E;&#x4FDD;&#x5B58;post&#x5230;&#x6570;&#x636E;&#x5E93;</p>
+<p><strong>&#x5B9E;&#x4F8B;</strong></p>
+<p>/<em>index.js</em>/</p>
+<pre><code>var express = require(&apos;express&apos;)
+var app = express()
+var bodyParser = require(&apos;body-parser&apos;)
+var mongoose = require(&apos;mongoose&apos;);
+var Post = require(&apos;./models/post&apos;);
+mongoose.Promise = global.Promise;
+mongoose.connect(&apos;mongodb://localhost:27017/express-api&apos;);
+var db = mongoose.connection;
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}))
+db.on(&apos;error&apos;, console.error.bind(console, &apos;connection error:&apos;));
+db.once(&apos;open&apos;, function() {
+  console.log(&apos;success!&apos;);
+})
+app.get(&apos;/write&apos;, function (req, res) {
+  var page = &apos;&lt;form method = &quot;post&quot; action = &quot;/posts&quot;&gt;&apos;+
+                &apos;&lt;label style=&quot;display:block;width:30px;&quot;&gt;title:&lt;/label&gt;&apos;+
+                &apos;&lt;input type = &quot;text&quot; name = &quot;title&quot; /&gt;&apos;+
+                &apos;&lt;/br&gt;&apos;+&apos;&lt;/br&gt;&apos;+
+                &apos;&lt;label style=&quot;display:block;width:30px;&quot;&gt;tag:&lt;/label&gt;&apos;+
+                &apos;&lt;input type = &quot;text&quot; name = &quot;tag&quot; /&gt;&apos;+
+                &apos;&lt;/br&gt;&apos;+&apos;&lt;/br&gt;&apos;+
+                &apos;&lt;label style=&quot;display:block;width:30px;&quot;&gt;content:&lt;/label&gt;&apos;+
+                &apos;&lt;input type = &quot;text&quot; name = &quot;content&quot; /&gt;&apos;+
+                &apos;&lt;/br&gt;&apos;+&apos;&lt;/br&gt;&apos;+
+                &apos;&lt;input type = &quot;submit&quot; /&gt;&apos;+
+              &apos;&lt;/form&gt;&apos;
+  res.send(page)
+})
+app.post(&apos;/posts&apos;, function (req, res) {
+  res.send(&quot;The blog title is:&quot; + req.body.title+&apos;\n&apos;+&quot;The blog tag is:&quot; + req.body.tag+&apos;\n&apos;+&quot;The blog content is:&quot; + req.body.content+&apos;\n&apos;)
+  var post = new Post({title:req.body.title,tag:req.body.tag,content:req.body.content});
+  post.save(function(err){
+    console.log(&apos;saved!&apos;);
+  })
+})
+app.listen(3000,function(){
+  console.log(&apos;running on port 3000...plz visit http://localhost:3000&apos;);
+})
+</code></pre><p>/<em>models/post.js</em>/</p>
+<pre><code>var mongoose = require(&apos;mongoose&apos;);
+var Schema = mongoose.Schema;
+
+var PostSchema = mongoose.Schema({
+   title: String,
+   tag:String,
+   content:String
+  },
+  { timestamps: true } //&#x9009;&#x9879; timestamps &#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A; true&#xFF0C;&#x5219;&#x81EA;&#x52A8;&#x7ED9;&#x6240;&#x6620;&#x5C04;&#x96C6;&#x5408;&#x6DFB;&#x52A0; createdAt &#x548C; updatedAt &#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;
+);
+
+module.exports = mongoose.model(&apos;Post&apos;,PostSchema)
+</code></pre><p>&#x901A;&#x8FC7; <code>Mongoose</code> &#x7684; <code>model()</code> &#x65B9;&#x6CD5;&#x628A;&#x4E00;&#x4E2A; <code>schema</code> &#x7F16;&#x8BD1;&#x6210;&#x4E00;&#x4E2A; <code>model</code>&#xFF0C;&#x4E00;&#x4E2A; <code>model</code> &#x5B9E;&#x4F8B;&#x4F1A;&#x5BF9;&#x5E94;&#x6620;&#x5C04;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x8FD9;&#x4E2A; <code>model()</code> &#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570; <code>Post</code> &#x5219;&#x662F;&#x6620;&#x5C04;&#x96C6;&#x5408;&#x540D;&#x5B57;&#x7684;&#x5355;&#x6570;&#x5F62;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5; <code>PostSchema</code> &#x6620;&#x5C04;&#x96C6;&#x5408;&#x7684;&#x540D;&#x5B57;&#x662F; <code>posts</code>&#x3002;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x8FD8;&#x628A;&#x6784;&#x5EFA;&#x6210;&#x7684; <code>Post Model</code> &#x5BFC;&#x51FA;&#x4F9B;&#x5916;&#x90E8;&#x5176;&#x5B83;&#x6587;&#x4EF6;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="t2&#x91CD;&#x5B9A;&#x5411;&#x3000;redirect&#x3000;&#x72B6;&#x6001;&#x7801;302">&#x91CD;&#x5B9A;&#x5411;&#x3000;redirect&#x3000;&#x72B6;&#x6001;&#x7801;302 <a href="#t2&#x91CD;&#x5B9A;&#x5411;&#x3000;redirect&#x3000;&#x72B6;&#x6001;&#x7801;302"> # </a></h2>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x6574;&#x4E2A;&#x8BF7;&#x6C42;&#x5C31;&#x7ED3;&#x675F;&#x4E86;</p>
+<p>&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x6536;&#x5230;&#x4E4B;&#x540E;&#x4F1A;&#x518D;&#x6B21;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;(&#x81EA;&#x52A8;&#x53D1;&#x8D77;&#x7B2C;&#x4E8C;&#x4E2A;&#x8BF7;&#x6C42;)</p>
+<pre><code>app.get(&apos;/&apos;,function(req,res){
+  res.redirect(&apos;https://www.baidu.com&apos;)
+})
+</code></pre><p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;<code>localhost:3000</code>&#x4F1A;&#x8FDB;&#x5165;&#x767E;&#x5EA6;</p>
+<pre><code>var express = require(&apos;express&apos;)
+var app = express()
+var bodyParser = require(&apos;body-parser&apos;)
+var mongoose = require(&apos;mongoose&apos;);
+var Post = require(&apos;./models/post&apos;);
+mongoose.Promise = global.Promise;
+mongoose.connect(&apos;mongodb://localhost:27017/express-api&apos;);
+var db = mongoose.connection;
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}))
+db.on(&apos;error&apos;, console.error.bind(console, &apos;connection error:&apos;));
+db.once(&apos;open&apos;, function() {
+  console.log(&apos;success!&apos;);
+})
+app.get(&apos;/&apos;, function (req, res) {
+  var page = &apos;&lt;form method = &quot;post&quot; action = &quot;/posts&quot;&gt;&apos;+
+                &apos;&lt;label style=&quot;display:block;width:30px;&quot;&gt;title:&lt;/label&gt;&apos;+
+                &apos;&lt;input type = &quot;text&quot; name = &quot;title&quot; /&gt;&apos;+
+                &apos;&lt;/br&gt;&apos;+&apos;&lt;/br&gt;&apos;+
+                &apos;&lt;label style=&quot;display:block;width:30px;&quot;&gt;tag:&lt;/label&gt;&apos;+
+                &apos;&lt;input type = &quot;text&quot; name = &quot;tag&quot; /&gt;&apos;+
+                &apos;&lt;/br&gt;&apos;+&apos;&lt;/br&gt;&apos;+
+                &apos;&lt;label style=&quot;display:block;width:30px;&quot;&gt;content:&lt;/label&gt;&apos;+
+                &apos;&lt;input type = &quot;text&quot; name = &quot;content&quot; /&gt;&apos;+
+                &apos;&lt;/br&gt;&apos;+&apos;&lt;/br&gt;&apos;+
+                &apos;&lt;input type = &quot;submit&quot; /&gt;&apos;+
+              &apos;&lt;/form&gt;&apos;
+  res.send(page)
+})
+app.post(&apos;/posts&apos;, function (req, res) {
+  // res.send(&quot;The blog title is:&quot; + req.body.title+&apos;\n&apos;+&quot;The blog tag is:&quot; + req.body.tag+&apos;\n&apos;+&quot;The blog content is:&quot; + req.body.content+&apos;\n&apos;)
+  var post = new Post({title:req.body.title,tag:req.body.tag,content:req.body.content});
+  post.save(function(err){
+    console.log(&apos;saved!&apos;);
+  })
+  res.redirect(&apos;/posts&apos;)
+})
+app.get(&apos;/posts&apos;,function(req,res){
+  Post.find().sort({&apos;createdAt&apos;:-1}).exec(function(err,posts){
+    res.send(posts)
+  })
+})
+app.listen(3000,function(){
+  console.log(&apos;running on port 3000...plz visit http://localhost:3000&apos;);
+})
+</code></pre><h2 id="t3&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x67B6;&#x6784;">&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x67B6;&#x6784; <a href="#t3&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x67B6;&#x6784;"> # </a></h2>
+<p>&#x524D;&#x9762;&#x5199;react,&#x540E;&#x9762;&#x5199;express&#xFF0C;&#x524D;&#x540E;&#x53F0;&#x6C9F;&#x901A;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x662F;json&#xFF0C;&#x524D;&#x53F0;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x53D1;ajax</p>
+<p>&#x540E;&#x53F0;&#x53EA;&#x8D1F;&#x8D23;json&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x8D1F;&#x8D23;html/css</p>
+<p>/<em>client/App.js</em>/</p>
+<pre><code>import React from &apos;react&apos;
+import axios from &apos;axios&apos;;
+
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      posts:[]
+    }
+  }
+  componentDidMount(){
+    //&#x5728;&#x6B64;&#x53D1;Ajax&#x8BF7;&#x6C42;
+    //&#x8BF7;&#x6C42;&#x670D;&#x52A1;&#x5668;&#x7AEF;json&#x6570;&#x636E;
+    axios.get(&apos;http://localhost:3000/posts&apos;, function(res){
+      this.setState({
+        posts: res.posts
+      })
+    })
+  }
+  render () {
+    return(
+      &lt;div&gt;
+        {this.state.posts}
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default App;
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

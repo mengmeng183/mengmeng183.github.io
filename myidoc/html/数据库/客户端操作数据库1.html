@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li class="active"><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    从客户端操作数据库
+">
+    从客户端操作数据库
+</a><ul><li><a href="#t1REST架构：前后台沟通的一种架构">REST架构：前后台沟通的一种架构</a></li><li><a href="#t2一．实现express路由">一．实现express路由</a></li><li><a href="#t3二．学会用curl调试API">二．学会用curl调试API</a><ul><li><a href="#t4Advanced REST client调试工具">Advanced REST client调试工具</a></li><li><a href="#t5用CURL模拟">用CURL模拟</a></li></ul></li><li><a href="#t6body-parser">body-parser</a><ul><li><a href="#t7API">API</a></li></ul></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <p></p><h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    &#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;
+">
+    &#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;
+ <a href="#t0
+    &#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;
+"> # </a></h1>
+&#x901A;&#x8FC7;&#x4E0D;&#x540C;&#x7684;request&#x6765;&#x5B9E;&#x73B0;<p></p>
+<p>Verb:</p>
+<ul>
+<li>get:&#x53EA;&#x8BFB;&#x64CD;&#x4F5C;</li>
+<li>post:&#x5BA2;&#x6237;&#x7AEF;&#x5411;&#x670D;&#x52A1;&#x5668;&#x5199;&#x6570;&#x636E;</li>
+<li>put:&#x5BA2;&#x6237;&#x7AEF;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6570;&#x636E;</li>
+<li>delete:&#x5BA2;&#x6237;&#x7AEF;&#x9700;&#x8981;&#x5220;&#x9664;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6570;&#x636E;</li>
+</ul>
+<p>Path:&#x3000;/about  &#x3000;&#x3000;&#x3000;/posts</p>
+<h3 id="t1REST&#x67B6;&#x6784;&#xFF1A;&#x524D;&#x540E;&#x53F0;&#x6C9F;&#x901A;&#x7684;&#x4E00;&#x79CD;&#x67B6;&#x6784;">REST&#x67B6;&#x6784;&#xFF1A;&#x524D;&#x540E;&#x53F0;&#x6C9F;&#x901A;&#x7684;&#x4E00;&#x79CD;&#x67B6;&#x6784; <a href="#t1REST&#x67B6;&#x6784;&#xFF1A;&#x524D;&#x540E;&#x53F0;&#x6C9F;&#x901A;&#x7684;&#x4E00;&#x79CD;&#x67B6;&#x6784;"> # </a></h3>
+<p>post&#x540E;&#x9762;&#x8DDF;/posts,&#x6839;&#x636E;according to REST api structrue</p>
+<p>&#x4F8B;&#x5982;&#x628A;&#x4E00;&#x7BC7;&#x535A;&#x5BA2;&#x5F53;&#x505A;&#x4E00;&#x4E2A;resource&#xFF08;&#x8D44;&#x6E90;&#xFF09;</p>
+<p>REST&#x89C4;&#x8303;&#x5305;&#x62EC;:<code>GET /pusts</code> &#x5217;&#x51FA;&#x6240;&#x6709;&#x535A;&#x5BA2;  <code>PUT /posts/:post_id</code> &#x66F4;&#x65B0;&#x4E00;&#x7BC7;&#x535A;&#x5BA2; <code>DELETE /posts/:post_id</code> &#x5220;&#x9664;&#x4E00;&#x7BC7;&#x535A;&#x5BA2; <code>GET /posts/:post_id</code>&#x6253;&#x5F00;&#x4E00;&#x7BC7;&#x535A;&#x5BA2;</p>
+<p>REST&#x67B6;&#x6784;&#x6709;&#x4E24;&#x5927;&#x4F18;&#x52BF;&#xFF1A;&#xFF11;&#xFF0E;&#x8BF7;&#x6C42;&#x7684;&#x683C;&#x5F0F;&#x7B26;&#x5408;&#x6B63;&#x5E38;&#x7528;&#x6237;&#x601D;&#x7EF4;&#x3000;&#xFF12;&#xFF0E;&#x6700;&#x5927;&#x7A0B;&#x5EA6;&#x7684;&#x5C0A;&#x91CD;&#x4E86;http verb&#x8BBE;&#x8BA1;&#x8005;&#x7684;&#x539F;&#x59CB;&#x610F;&#x56FE;</p>
+<pre><code>get /posts //&#x8BFB;&#x53D6;&#x6240;&#x6709;&#x6587;&#x7AE0;
+post /posts //&#x65B0;&#x5EFA;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x53D1;&#x5E03;&#x6587;&#x7AE0;&#x65F6;&#x6CA1;&#x6709;id
+put /posts/:post_id //&#x66F4;&#x65B0;&#x4E00;&#x7BC7;&#x6587;&#x7AE0; &#xFF0C;post_id&#x4E3A;&#x535A;&#x5BA2;Id
+get /posts/:post_id //&#x8BFB;&#x53D6;&#x7279;&#x5B9A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;
+delete /posts/:post_id //&#x5220;&#x9664;&#x7279;&#x5B9A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;
+</code></pre><p>express&#x8DEF;&#x7531;&#x63A7;&#x5236;+mongoose</p>
+<h3 id="t2&#x4E00;&#xFF0E;&#x5B9E;&#x73B0;express&#x8DEF;&#x7531;">&#x4E00;&#xFF0E;&#x5B9E;&#x73B0;express&#x8DEF;&#x7531; <a href="#t2&#x4E00;&#xFF0E;&#x5B9E;&#x73B0;express&#x8DEF;&#x7531;"> # </a></h3>
+<h3 id="t3&#x4E8C;&#xFF0E;&#x5B66;&#x4F1A;&#x7528;curl&#x8C03;&#x8BD5;API">&#x4E8C;&#xFF0E;&#x5B66;&#x4F1A;&#x7528;curl&#x8C03;&#x8BD5;API <a href="#t3&#x4E8C;&#xFF0E;&#x5B66;&#x4F1A;&#x7528;curl&#x8C03;&#x8BD5;API"> # </a></h3>
+<pre><code>curl --request PUT localhost:3000/posts/23
+</code></pre><pre><code>var express = require(&apos;express&apos;)
+var app = express() //app&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x9876;&#x7EA7;&#x7684;&#x4E1C;&#x897F;
+
+app.post(&apos;/posts&apos;, function (req, res) {
+  res.send(&quot;post posts &quot;+&apos;\n&apos;)
+})
+app.get(&apos;/posts&apos;, function (req, res) {
+  res.send(&quot;get posts&quot;+&apos;\n&apos;)
+})
+app.get(&apos;/posts/:post_id&apos;, function (req, res) {
+  res.send(&quot;get posts/post_id&quot;+&apos;\n&apos;)
+})
+app.put(&apos;/posts/:post_id&apos;, function (req, res) {
+  res.send(&quot;put posts/post_id&quot;+&apos;\n&apos;)
+})
+app.delete(&apos;/posts/:post_id&apos;, function (req, res) {
+  res.send(&quot;delete posts/post_id&quot;+&apos;\n&apos;)
+})
+app.listen(3000,function(){
+  console.log(&apos;running on port 3000...plz visit http://localhost:3000&apos;);
+})
+</code></pre><p><img src="http://odowb0dhc.bkt.clouddn.com/router.png" alt="router"></p>
+<p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;<code>http://localhost:3000/posts</code>&#x4F1A;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x6253;&#x5370;<code>get posts</code>,&#x8BBF;&#x95EE;<code>http://localhost:3000/posts/123</code>&#x4F1A;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x6253;&#x5370;<code>get posts/post_id</code>,</p>
+<h4 id="t4Advanced REST client&#x8C03;&#x8BD5;&#x5DE5;&#x5177;">Advanced REST client&#x8C03;&#x8BD5;&#x5DE5;&#x5177; <a href="#t4Advanced REST client&#x8C03;&#x8BD5;&#x5DE5;&#x5177;"> # </a></h4>
+<p><a href="http://pan.baidu.com/s/1c0vUnJi">&#x4E0B;&#x8F7D;&#x5730;&#x5740;</a>&#x3000;&#x5BC6;&#x7801;&#xFF1A;z34d</p>
+<p>&#x4E0B;&#x8F7D;&#x540E;&#x5355;&#x51FB;&#x6D4F;&#x89C8;&#x5668;&#x53F3;&#x4E0A;&#x89D2;&#x7684;&#x4E09;&#x4E2A;&#x70B9;--&gt;&#x8BBE;&#x7F6E;--&gt;&#x6269;&#x5C55;&#x7A0B;&#x5E8F;--&gt;&#x52A0;&#x8F7D;&#x5DF2;&#x89E3;&#x538B;&#x7684;&#x6269;&#x5C55;&#x7A0B;&#x5E8F;&#x3000;</p>
+<p>&#x8BBF;&#x95EE;<code>chrome://apps/</code>--&gt;&#x9009;&#x62E9;&#x521A;&#x521A;&#x52A0;&#x8F7D;&#x7684;&#x7A0B;&#x5E8F;--&gt;&#x5BFC;&#x5165;&#x9879;&#x76EE;&#x7684;index.js
+<img src="http://odowb0dhc.bkt.clouddn.com/%E6%A8%A1%E6%8B%9F%E8%AF%B7%E6%B1%82.png" alt="&#x6A21;&#x62DF;&#x8BF7;&#x6C42;"></p>
+<h4 id="t5&#x7528;CURL&#x6A21;&#x62DF;">&#x7528;CURL&#x6A21;&#x62DF; <a href="#t5&#x7528;CURL&#x6A21;&#x62DF;"> # </a></h4>
+<pre><code>curl -H &quot;Content-Type: application/json&quot; -X POST -d &apos;{&quot;title&quot;:&quot;myTitle&quot;,&quot;content&quot;:&quot;myContent&quot;}&apos; http://localhost:3000/posts
+</code></pre><h3 id="t6body-parser">body-parser <a href="#t6body-parser"> # </a></h3>
+<p>&#x4E0B;&#x8F7D;<code>body-parser</code>body&#x89E3;&#x6790;&#x5668;,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>req.body</code></p>
+<p>body-parser &#x662F;&#x4E00;&#x4E2A;&#x7531; Expressjs &#x56E2;&#x961F;&#x7EF4;&#x62A4;&#x7684; Express &#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x5B83;&#x7684;&#x529F;&#x80FD;&#x662F;&#x89E3;&#x6790; HTTP &#x8BF7;&#x6C42;&#x4E2D;&#x7684;&#x6B63;&#x6587;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x628A;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x5B58;&#x50A8;&#x5230; req.body &#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x6BD4;&#x65B9;&#x8BF4;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4EA4; form &#x8868;&#x5355;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<pre><code>npm install --save body-parser
+</code></pre><p>&#x5BFC;&#x5165;body-parser</p>
+<p>&#x6253;&#x5F00; <code>index.js</code> &#x6587;&#x4EF6;&#xFF0C;&#x9996;&#x5148;&#x5BFC;&#x5165; <code>body-parser</code> &#x529F;&#x80FD;&#x6A21;&#x5757;</p>
+<pre><code>var bodyParser = require(&apos;body-parser&apos;);
+</code></pre><p>&#x89E3;&#x6790; HTTP &#x8BF7;&#x6C42;&#x6B63;&#x6587;&#x7684;&#x4E2D;&#x7684; JSON &#x6570;&#x636E;&#xFF0C;&#x5E76;&#x5B58;&#x50A8;&#x5230; req.body &#x5BF9;&#x8C61;&#x4E2D;&#x3002;</p>
+<pre><code>app.use(bodyParser.json())//&#x89E3;&#x6790;json
+app.use(bodyParser.urlencoded({extended:false})) //&#x89E3;&#x6790;&#x8868;&#x5355; &#x5982;&#x679C;&#x60F3;&#x4F7F;&#x7528; form &#x63D0;&#x4EA4;&#xFF0C;&#x8FD9;&#x4E00;&#x884C;&#x662F;&#x5FC5;&#x8981;&#x7684;
+</code></pre><pre><code>var express = require(&apos;express&apos;)
+var app = express()
+var bodyParser = require(&apos;body-parser&apos;)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false})) // &#x5982;&#x679C;&#x60F3;&#x4F7F;&#x7528; form &#x63D0;&#x4EA4;&#xFF0C;&#x8FD9;&#x4E00;&#x884C;&#x662F;&#x5FC5;&#x8981;&#x7684;
+
+app.get(&apos;/write&apos;, function (req, res) {
+  var page = &apos;&lt;form method = &quot;post&quot; action = &quot;/posts&quot;&gt;&apos;+
+                &apos;&lt;input type = &quot;text&quot; name = &quot;title&quot; /&gt;&apos;+
+                &apos;&lt;input type = &quot;submit&quot; /&gt;&apos;+
+              &apos;&lt;/form&gt;&apos;
+  res.send(page)
+})
+app.post(&apos;/posts&apos;, function (req, res) {
+  res.send(&quot;The blog title is:&quot; + req.body.title)
+})
+app.listen(3000,function(){
+  console.log(&apos;running on port 3000...plz visit http://localhost:3000&apos;);
+})
+</code></pre><p>&#x5728;&#x547D;&#x4EE4;&#x884C;&#x6267;&#x884C;</p>
+<pre><code>curl -H &quot;Content-Type: application/json&quot; -X POST -d &apos;{&quot;title&quot;:&quot;myTitle&quot;,&quot;content&quot;:&quot;myContent&quot;}&apos; http://localhost:3000/posts
+</code></pre><p>&#x5728;&#x4E0B;&#x9762;&#x6253;&#x5370;&#x51FA;<code>The blog title is:myTitle</code></p>
+<p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;<code>http://localhost:3000/write</code>,&#x5728;&#x6587;&#x672C;&#x6846;&#x5185;&#x8F93;&#x5165;<code>mengmeng</code>&#xFF0C;&#x5355;&#x51FB;&#x63D0;&#x4EA4;&#x6309;&#x94AE;&#xFF0C;&#x8DF3;&#x8F6C;&#x5230;<code>http://localhost:3000/posts</code>&#x9875;&#x9762;&#xFF0C;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x6253;&#x5370;<code>The blog title is:mengmeng</code></p>
+<h4 id="t7API">API <a href="#t7API"> # </a></h4>
+<p>API&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#xFF0C;&#x5C31;&#x662F;verb+path&#xFF0C;&#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;json&#x6570;&#x636E;</p>
+<p><a href="https://en.wikipedia.org/wiki/Web_API">&#x53C2;&#x8003;&#x7F51;&#x5740;</a></p>
+<p><a href="https://developer.github.com/v3/">&#x4F8B;&#x5B50;&#x7F51;&#x5740;</a></p>
+<ol>
+<li>API&#x662F;&#x7531;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x51FA;&#x6765;&#x7684;</li>
+<li>&#x63D0;&#x4F9B;&#x7ED9;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x6765;&#x4F7F;&#x7528;&#x7684;</li>
+<li>&#x4F5C;&#x4E3A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x8005;&#xFF0C;&#x6211;&#x4EEC;&#x6240;&#x8BF4;&#x7684;&#x662F;Web API</li>
+</ol>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

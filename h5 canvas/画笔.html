@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画笔</title>
+	<style>
+		body{
+			background-color: #ccc;
+		}
+		.box{
+			height: 400px;
+			width: 800px;
+			margin: 0 auto;
+		}
+		#myCanvas{
+			background-color: #fff;
+		}
+		.btn{
+			margin-top: 20px;
+		}
+		.pen-color{
+			display:inline-block;
+			width: 40px;
+			height: 40px;
+		}
+		.green-btn{
+			background-color: green;
+		}
+		.red-btn{
+			background-color: red;
+		}
+		.orange-btn{
+			background-color: orange;
+		}
+		.blue-btn{
+			background-color: blue;
+		}
+		.yellow-btn{
+			background-color: yellow;
+		}
+		.black-btn{
+			background-color: black;
+		}
+		.pen-size{
+			display:inline-block;
+			border-radius:50%;
+			background-color: #000;
+		}
+		.pen-10{
+			width: 10px;
+			height: 10px;
+		}
+		.pen-15{
+			width: 15px;
+			height: 15px;
+		}
+		.pen-20{
+			width: 20px;
+			height: 20px;
+		}
+		.pen-25{
+			width: 25px;
+			height: 25px;
+		}
+		.pen-30{
+			width: 30px;
+			height: 30px;
+		}
+		.eraser{
+			width: 50px;
+			height: 50px;
+			background-color: #0ff;
+			font-size: 16px;
+			text-align: center;
+			line-height: 50px;
+			margin-left: 20px;
+			border-radius:6px;
+
+		}
+		.clear{
+			display:inline-block;
+			width: 90px;
+			height: 50px;
+			text-align: center;
+			background-color: orange;
+			line-height: 50px;
+			border-radius:6px;
+			color:#000;
+			font-size: 20px;
+			font-family: '黑体';
+			cursor:pointer;
+			margin-left: 30px;
+		}
+		.border{
+			box-shadow: 0 0 0 2px #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+    	<canvas id="myCanvas" width="800" height="400"></canvas>
+    	<div class="btn">
+    		<span class="pen-color green-btn"></span>
+    		<span class="pen-color red-btn"></span>
+    		<span class="pen-color orange-btn"></span>
+    		<span class="pen-color blue-btn"></span>
+    		<span class="pen-color yellow-btn"></span>    		
+    		<span class="pen-color black-btn"></span>
+
+    		<span class="pen-size pen-10"></span>
+    		<span class="pen-size pen-15"></span>
+    		<span class="pen-size pen-20"></span>
+    		<span class="pen-size pen-25"></span>
+    		<span class="pen-size pen-30"></span>
+			
+			<button class="eraser">橡皮</button>
+    		<button class="clear">清除</button>
+    	</div>
+    	
+    </div>
+	<script src="jquery-1.10.2.js"></script>
+	<script>
+		function G(sId){
+			return document.getElementById(sId);
+		}
+		
+		window.onload = function(){
+			var c = G('myCanvas');
+			var ctx = c.getContext('2d');
+			var color = "";
+			var size = "";
+			var penX = 0;
+			var PenY = 0;
+			var switchBtn = false;
+			$('.pen-color').click(function(){
+				color = $(this).css('backgroundColor');
+				$('.pen-color').removeClass('border');
+				$(this).addClass('border');
+			})
+			$('.pen-size').click(function(){
+				size = $(this).width();
+			})
+			$('.clear').click(function(){
+				ctx.clearRect(0,0,800,400);
+			})
+			$('.eraser').click(function(){
+				color = "white";
+			})
+			c.addEventListener('mousedown',function(e){
+				switchBtn = true;
+				penX = e.offsetX;
+				penY = e.offsetY;
+
+			})
+			c.addEventListener('mousemove',function(e){
+				if(switchBtn){
+					ctx.beginPath();
+					ctx.moveTo(penX,penY);
+					ctx.lineTo(e.offsetX,e.offsetY);
+					ctx.strokeStyle = color;
+					ctx.lineWidth = size;
+					ctx.lineCap = 'round';
+					ctx.stroke();
+					ctx.closePath();
+
+					penX = e.offsetX;
+					penY = e.offsetY;
+				}
+			})
+			c.addEventListener('mouseup',function(){
+				switchBtn = false;
+			})
+		}
+	</script>
+</body>
+</html>

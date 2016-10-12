@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: #ccc;
+		}
+		.box{
+			height: 400px;
+			width: 800px;
+			margin: 0 auto;
+		}
+		#myCanvas{
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	 <div class="box">
+    	<canvas id="myCanvas" width="800" height="400"></canvas>
+    </div>
+	
+	<script>
+		function G(sId){
+			return document.getElementById(sId);
+		}
+		
+		window.onload = function(){
+			var c = G('myCanvas');
+			var ctx = c.getContext('2d');
+
+			function drawLine(oCtx,oData,oStyle){
+				oCtx.beginPath();
+				oCtx.moveTo(oData[0].x,oData[0].y);
+				for(var i = 1;i<oData.length;i++){
+					oCtx.lineTo(oData[i].x,oData[i].y);	
+				}
+				// for(var i　in oData){
+				// 	if(i == 0){
+				// 		oCtx.moveTo(oData[0].x,oData[0].y);
+				// 	}else{
+				// 		oCtx.lineTo(oData[i].x,oData[i].y);		
+				// 	}				
+									
+				// }
+				oCtx.lineTo(oData[0].x,oData[0].y);	
+				oCtx.fillStyle = oStyle;
+				oCtx.fill();
+				oCtx.closePath();				
+			}
+			var blueData = [
+				{'x':163,'y':10},				
+				{'x':149,'y':42},
+				{'x':163,'y':68},
+				{'x':176,'y':32}
+			]
+			var yellowData = [
+				{'x':151,'y':68},				
+				{'x':180,'y':68},
+				{'x':180,'y':96},
+				{'x':151,'y':96}
+
+			]
+			var redData = [				
+				{'x':136,'y':96},				
+				{'x':192,'y':96},
+				{'x':165,'y':125}
+			];
+			var skyBlueData = [
+				{'x':144,'y':104},				
+				{'x':144,'y':146},
+				{'x':165,'y':125}
+			]
+			var orangeData = [
+				{'x':186,'y':104},				
+				{'x':144,'y':146},
+				{'x':186,'y':187}
+			]
+			var dareRedData = [
+				{'x':144,'y':146},				
+				{'x':144,'y':187},
+				{'x':166,'y':168}
+			]
+			var greenData = [
+				{'x':166,'y':168},				
+				{'x':123,'y':207},
+				{'x':206,'y':207}
+			]
+			drawLine(ctx,blueData,'#123d81');
+			drawLine(ctx,yellowData,'#dfbc3a');
+			drawLine(ctx,redData,'#d04542');
+			drawLine(ctx,skyBlueData,'#7484bf');
+			drawLine(ctx,orangeData,'#ed621f');
+			drawLine(ctx,dareRedData,'#4b2d2d');
+			drawLine(ctx,greenData,'#25714a');
+			var blueData = [
+				{'x':263,'y':10},				
+				{'x':249,'y':42},
+				{'x':263,'y':68},
+				{'x':276,'y':32}
+			]
+			var yellowData = [
+				{'x':251,'y':68},				
+				{'x':280,'y':68},
+				{'x':280,'y':96},
+				{'x':251,'y':96}
+
+			]
+			var redData = [				
+				{'x':236,'y':96},				
+				{'x':292,'y':96},
+				{'x':265,'y':125}
+			];
+			var skyBlueData = [
+				{'x':244,'y':104},				
+				{'x':244,'y':146},
+				{'x':265,'y':125}
+			]
+			var orangeData = [
+				{'x':286,'y':104},				
+				{'x':244,'y':146},
+				{'x':286,'y':187}
+			]
+			var dareRedData = [
+				{'x':244,'y':146},				
+				{'x':244,'y':187},
+				{'x':266,'y':168}
+			]
+			var greenData = [
+				{'x':266,'y':168},				
+				{'x':223,'y':207},
+				{'x':306,'y':207}
+			]
+			drawLine(ctx,blueData,'#123d81');
+			drawLine(ctx,yellowData,'#dfbc3a');
+			drawLine(ctx,redData,'#d04542');
+			drawLine(ctx,skyBlueData,'#7484bf');
+			drawLine(ctx,orangeData,'#ed621f');
+			drawLine(ctx,dareRedData,'#4b2d2d');
+			drawLine(ctx,greenData,'#25714a');
+			var blueData = [
+				{'x':363,'y':10},				
+				{'x':349,'y':42},
+				{'x':363,'y':68},
+				{'x':376,'y':32}
+			]
+			var yellowData = [
+				{'x':351,'y':68},				
+				{'x':380,'y':68},
+				{'x':380,'y':96},
+				{'x':351,'y':96}
+
+			]
+			var redData = [				
+				{'x':336,'y':96},				
+				{'x':392,'y':96},
+				{'x':365,'y':125}
+			];
+			var skyBlueData = [
+				{'x':344,'y':104},				
+				{'x':344,'y':146},
+				{'x':365,'y':125}
+			]
+			var orangeData = [
+				{'x':386,'y':104},				
+				{'x':344,'y':146},
+				{'x':386,'y':187}
+			]
+			var dareRedData = [
+				{'x':344,'y':146},				
+				{'x':344,'y':187},
+				{'x':366,'y':168}
+			]
+			var greenData = [
+				{'x':366,'y':168},				
+				{'x':323,'y':207},
+				{'x':406,'y':207}
+			]
+			drawLine(ctx,blueData,'#123d81');
+			drawLine(ctx,yellowData,'#dfbc3a');
+			drawLine(ctx,redData,'#d04542');
+			drawLine(ctx,skyBlueData,'#7484bf');
+			drawLine(ctx,orangeData,'#ed621f');
+			drawLine(ctx,dareRedData,'#4b2d2d');
+			drawLine(ctx,greenData,'#25714a');
+			var blueData = [
+				{'x':463,'y':10},				
+				{'x':449,'y':42},
+				{'x':463,'y':68},
+				{'x':476,'y':32}
+			]
+			var yellowData = [
+				{'x':451,'y':68},				
+				{'x':480,'y':68},
+				{'x':480,'y':96},
+				{'x':451,'y':96}
+
+			]
+			var redData = [				
+				{'x':436,'y':96},				
+				{'x':492,'y':96},
+				{'x':465,'y':125}
+			];
+			var skyBlueData = [
+				{'x':444,'y':104},				
+				{'x':444,'y':146},
+				{'x':465,'y':125}
+			]
+			var orangeData = [
+				{'x':486,'y':104},				
+				{'x':444,'y':146},
+				{'x':486,'y':187}
+			]
+			var dareRedData = [
+				{'x':444,'y':146},				
+				{'x':444,'y':187},
+				{'x':466,'y':168}
+			]
+			var greenData = [
+				{'x':466,'y':168},				
+				{'x':423,'y':207},
+				{'x':506,'y':207}
+			]
+			drawLine(ctx,blueData,'#123d81');
+			drawLine(ctx,yellowData,'#dfbc3a');
+			drawLine(ctx,redData,'#d04542');
+			drawLine(ctx,skyBlueData,'#7484bf');
+			drawLine(ctx,orangeData,'#ed621f');
+			drawLine(ctx,dareRedData,'#4b2d2d');
+			drawLine(ctx,greenData,'#25714a');
+		}
+		</script>
+</body>
+</html>

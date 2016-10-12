@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li class="active"><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    mongoose
+">
+    mongoose
+</a><ul><li><a href="#t1第一步：确保mongodb已经启动，也就是确保mongo shell可以用">第一步：确保mongodb已经启动，也就是确保mongo shell可以用</a></li><li><a href="#t2第二步：js代码中连接mongodb">第二步：js代码中连接mongodb</a></li><li><a href="#t3第三步：建立数据Schema">第三步：建立数据Schema</a></li><li><a href="#t4第四步：学会用js代码来增删改查">第四步：学会用js代码来增删改查</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    mongoose
+">
+    mongoose
+ <a href="#t0
+    mongoose
+"> # </a></h1>
+
+<p><a href="http://mongoosejs.com/">&#x5B98;&#x7F51;&#x94FE;&#x63A5;</a></p>
+<p>&#x4F7F;&#x7528;mongoose&#x7684;&#x524D;&#x63D0;&#x662F;&#x5B89;&#x88C5;&#x4E86;mongodb&#x548C;node.js</p>
+<p>mongoose&#x662F;node.js&#x7684;&#x5E93;&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#x5B89;&#x88C5;&#x5728;&#x9879;&#x76EE;&#x5185;&#x90E8;&#x5B89;&#x88C5;</p>
+<pre><code>npm install --save mongoose
+</code></pre><p>mongoose,&#x662F;&#x8F6F;&#x4EF6;&#x5E93;&#xFF0C;&#x6838;&#x5FC3;&#x4F5C;&#x7528;&#x662F;&#x6570;&#x636E;&#x6A21;&#x578B;&#x5BF9;&#x8C61;&#x5316;&#xFF0C;&#x662F;&#x7528;&#x6765;&#x8FDE;&#x63A5;express&#x548C;mongdb&#x7684;,&#x7ED3;&#x5408;js&#x4EE3;&#x7801;&#x4F7F;&#x7528;</p>
+<p>&#x4F5C;&#x7528;&#xFF1A;&#x628A;&#x6570;&#x636E;&#x8F6C;&#x5316;&#x6210;js&#x5BF9;&#x8C61;&#xFF0C;&#x4EE5;&#x4FBF;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;js&#x4EE3;&#x7801;&#x6765;&#x8BFB;&#x5199;mongodb</p>
+<h3 id="t1&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x786E;&#x4FDD;mongodb&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x786E;&#x4FDD;mongo shell&#x53EF;&#x4EE5;&#x7528;">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x786E;&#x4FDD;mongodb&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x786E;&#x4FDD;mongo shell&#x53EF;&#x4EE5;&#x7528; <a href="#t1&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x786E;&#x4FDD;mongodb&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x786E;&#x4FDD;mongo shell&#x53EF;&#x4EE5;&#x7528;"> # </a></h3>
+<pre><code>mongodb --dbpath=&#x6570;&#x636E;&#x5E93;&#x8DEF;&#x5F84;
+</code></pre><h3 id="t2&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;js&#x4EE3;&#x7801;&#x4E2D;&#x8FDE;&#x63A5;mongodb">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;js&#x4EE3;&#x7801;&#x4E2D;&#x8FDE;&#x63A5;mongodb <a href="#t2&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;js&#x4EE3;&#x7801;&#x4E2D;&#x8FDE;&#x63A5;mongodb"> # </a></h3>
+<blockquote>
+<p>&#x6BCF;&#x4E2A;&#x9879;&#x76EE;&#x53EA;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x53EF;&#x6709;&#x591A;&#x5916;collection(&#x96C6;&#x5408;)</p>
+</blockquote>
+<p><strong>&#x521B;&#x5EFA;package.json&#x6587;&#x4EF6;</strong></p>
+<pre><code>echo {}&gt;package.json //&#x521B;&#x5EFA;&#x540E;package.json&#x4E2D;&#x662F;&#x4E00;&#x4E2A;{}&#xFF0C;&#x7A7A;&#x7684;&#x5BF9;&#x8C61;
+</code></pre><p><strong>&#x5728;&#x9879;&#x76EE;&#x5185;&#x5B89;&#x88C5;mongoose</strong></p>
+<pre><code>npm install --save mongoose
+</code></pre><p><strong>&#x5728;&#x9879;&#x76EE;&#x5185;&#x5BFC;&#x5165;mongoose</strong></p>
+<pre><code>var mongoose = require(&apos;mongoose&apos;);
+</code></pre><p><strong>&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</strong></p>
+<pre><code>mongoose.connect(&apos;mongodb://localhost:27017/data&apos;);//data&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x540D;
+</code></pre><p>/<em>index.js</em>/</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);<span class="hljs-comment">//&#x5F15;&#x7528;mongoose&#x6A21;&#x5757;</span>
+mongoose.Promise = global.Promise; <span class="hljs-comment">//&#x6709;&#x65F6;&#x547D;&#x4EE4;&#x884C;&#x4F1A;&#x63D0;&#x793A;&#x6709;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;&#x5783;&#x573E;&#x63D0;&#x9192;,&#x52A0;&#x4E0A;&#x5B83;&#x5C31;&#x6CA1;&#x6709;&#x4E86;&#xFF0C;&#x5FC5;&#x987B;&#x653E;&#x5728;connect&#x524D;</span>
+mongoose.connect(<span class="hljs-string">&apos;mongodb://localhost:27017/data&apos;</span>);<span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;,&#x4E00;&#x4F46;&#x6709;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;</span>
+<span class="hljs-keyword">var</span> db = mongoose.connection; <span class="hljs-comment">//db&#x4EE3;&#x8868;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4EE5;&#x540E;&#x5BF9;db&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</span>
+db.on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-built_in">console</span>.error.bind(<span class="hljs-built_in">console</span>, <span class="hljs-string">&apos;connection error:&apos;</span>));
+db.once(<span class="hljs-string">&apos;open&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{  <span class="hljs-comment">//once&#x662F;mongoose&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;</span>
+   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;connected!&apos;</span>); <span class="hljs-comment">//&#x540E;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x4F1A;&#x5199;&#x5230;&#x8FD9;&#x4E2A;&#x52A0;&#x8C03;&#x51FD;&#x6570;&#x91CC;</span>
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x6267;&#x884C;<code>node index.js</code>,&#x5728;&#x547D;&#x4EE4;&#x884C;&#x6253;&#x5370;<code>connected!</code></p>
+<h3 id="t3&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5EFA;&#x7ACB;&#x6570;&#x636E;Schema">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5EFA;&#x7ACB;&#x6570;&#x636E;Schema <a href="#t3&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5EFA;&#x7ACB;&#x6570;&#x636E;Schema"> # </a></h3>
+<p>Schema &#x6570;&#x636E;&#x6982;&#x8981;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x6570;&#x636E;(&#x6587;&#x6863;document&#xFF0C;&#x4E00;&#x6761;&#x8BB0;&#x5F55;record)&#x7ED3;&#x6784;,&#x89C4;&#x5B9A;&#x8FD9;&#x4E2A;&#x8BB0;&#x5F55;&#x4E2D;&#x6709;&#x51E0;&#x4E2A;&#x5B57;&#x6BB5;(field)&#xFF0C;&#x6BCF;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x5B57;(name,birthday...),&#x4EE5;&#x53CA;&#x5B57;&#x6BB5;&#x7C7B;&#x578B;(string,num...)</p>
+<p><strong>&#x4E86;&#x89E3;Model&#x6A21;&#x578B;&#x7684;&#x6982;&#x5FF5;</strong>
+model&#x662F;MVC&#x4E4B;&#x4E2D;&#x7684;M&#xFF0C;model&#x901A;&#x5E38;&#x4F1A;&#x5199;&#x6210;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5B58;&#x653E;&#x6240;&#x6709;&#x548C;&#x6570;&#x636E;&#x76F4;&#x63A5;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;</p>
+<p>MVC Model View Controller &#x6A21;&#x578B; &#x89C6;&#x56FE; &#x63A7;&#x5236;&#x5668;&#xFF08;&#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#xFF09;</p>
+<p>/<em>index.js</em>/&#x6210;&#x529F;&#x6784;&#x5EFA;&#x4E00;&#x6761;&#x8BB0;&#x5F55;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+mongoose.connect(<span class="hljs-string">&apos;mongodb://localhost:27017/mongoose-api&apos;</span>);<span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;,&#x4E00;&#x4F46;&#x6709;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;</span>
+<span class="hljs-keyword">var</span> db = mongoose.connection;
+db.on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-built_in">console</span>.error.bind(<span class="hljs-built_in">console</span>, <span class="hljs-string">&apos;connection error:&apos;</span>));
+db.once(<span class="hljs-string">&apos;open&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> catSchema = mongoose.Schema({
+   name: <span class="hljs-built_in">String</span> <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;name&#xFF0C;&#x7C7B;&#x578B;&#x4E3A;String</span>
+  });
+  <span class="hljs-keyword">var</span> cat = mongoose.model(<span class="hljs-string">&apos;cat&apos;</span>, catSchema);<span class="hljs-comment">//cat&#x662F;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x662F;&#x5B9E;&#x9645;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x540D;&#x5B57;,catSchema&#x662F;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x7684;&#x7ED3;&#x6784;</span>
+  <span class="hljs-keyword">var</span> kitty = <span class="hljs-keyword">new</span> cat({ name: <span class="hljs-string">&apos;helloKitty&apos;</span> });
+  <span class="hljs-built_in">console</span>.log(kitty.name);<span class="hljs-comment">//&#x6267;&#x884C;node index.js&#x5728;&#x547D;&#x4EE4;&#x884C;&#x6253;&#x5370;helloKitty</span>
+  kitty.save();<span class="hljs-comment">//&#x4FDD;&#x5B58;&#x8BB0;&#x5F55;&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x5C31;&#x6709;&#x8BE5;&#x6570;&#x636E;&#x4E86;</span>
+});
+</code></pre>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>mongoose-api</code>&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;<code>cats</code>&#x96C6;&#x5408;&#xFF0C;&#x96C6;&#x5408;&#x4E2D;&#x6709;&#x4E00;&#x6761;&#x8BB0;&#x5F55;<code>{ &quot;_id&quot; : ObjectId(&quot;57ec890239967118d8ec4690&quot;), &quot;name&quot; : &quot;helloKitty&quot;, &quot;__v&quot; : 0 }</code></p>
+<p><code>var cat = mongoose.model(&apos;cat&apos;, catSchema);</code>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x6A21;&#x578B;&#x5BF9;&#x5E94;&#x7684;&#x96C6;&#x5408;&#x540D;&#x79F0;&#x7684;&#x5355;&#x6570;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x4E00;&#x6761;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x7684;&#x7ED3;&#x6784;<a href="http://mongoosejs.com/docs/models.html">&#x53C2;&#x8003;&#x7F51;&#x7AD9;</a></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+mongoose.connect(<span class="hljs-string">&apos;mongodb://localhost:27017/mongoose-api&apos;</span>);
+<span class="hljs-keyword">var</span> db = mongoose.connection;
+db.on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-built_in">console</span>.error.bind(<span class="hljs-built_in">console</span>, <span class="hljs-string">&apos;connection error:&apos;</span>));
+db.once(<span class="hljs-string">&apos;open&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> userSchema = mongoose.Schema({
+   userName: <span class="hljs-built_in">String</span>,
+   password:<span class="hljs-built_in">String</span>,
+   age:<span class="hljs-built_in">Number</span>
+  });
+  <span class="hljs-keyword">var</span> user = mongoose.model(<span class="hljs-string">&apos;user&apos;</span>, userSchema);
+  <span class="hljs-keyword">var</span> mengmeng = <span class="hljs-keyword">new</span> user({userName:<span class="hljs-string">&apos;mengmeng&apos;</span>,password:<span class="hljs-string">&apos;123&apos;</span>,age:<span class="hljs-number">12</span>});
+  <span class="hljs-built_in">console</span>.log(mengmeng.userName,mengmeng.password,mengmeng.age);
+  mengmeng.save();
+});
+</code></pre>
+<p>&#x5728;<code>mongoose-api</code>&#x6570;&#x636E;&#x5E93;&#x589E;&#x52A0;&#x4E00;&#x4E2A;<code>users</code>&#x96C6;&#x5408;,&#x96C6;&#x5408;&#x4E2D;&#x6709;&#x4E00;&#x6761;&#x8BB0;&#x5F55;<code>{ &quot;_id&quot; : ObjectId(&quot;57ecb636c1d1de21be1e7615&quot;), &quot;userName&quot; : &quot;mengmeng&quot;, &quot;password&quot; : &quot;123&quot;, &quot;age&quot; : 12, &quot;__v&quot; : 0 }</code></p>
+<h3 id="t4&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5B66;&#x4F1A;&#x7528;js&#x4EE3;&#x7801;&#x6765;&#x589E;&#x5220;&#x6539;&#x67E5;">&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5B66;&#x4F1A;&#x7528;js&#x4EE3;&#x7801;&#x6765;&#x589E;&#x5220;&#x6539;&#x67E5; <a href="#t4&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5B66;&#x4F1A;&#x7528;js&#x4EE3;&#x7801;&#x6765;&#x589E;&#x5220;&#x6539;&#x67E5;"> # </a></h3>
+<p><strong>Create &#x589E;</strong>
+1.&#x5B9A;&#x4E49;schema</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> userSchema = mongoose.Schema({
+ userName: <span class="hljs-built_in">String</span>,
+ password:<span class="hljs-built_in">String</span>,
+ age:<span class="hljs-built_in">Number</span>
+});
+</code></pre>
+<p>2.&#x4FDD;&#x5B58;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mengmeng = <span class="hljs-keyword">new</span> person({userName:<span class="hljs-string">&apos;mengmeng&apos;</span>,password:<span class="hljs-string">&apos;123&apos;</span>,age:<span class="hljs-number">12</span>});
+<span class="hljs-built_in">console</span>.log(mengmeng.userName,mengmeng.password,mengmeng.age);
+mengmeng.save(); <span class="hljs-comment">//save()&#x662F;&#x5F02;&#x6B65;&#x7684;</span>
+</code></pre>
+<p><strong>Read &#x67E5;</strong>
+find() &#x5199;&#x5728;db.once&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = user.find() <span class="hljs-comment">//&#x540C;&#x6B65;&#x6267;&#x884C;</span>
+</code></pre>
+<pre><code class="lang-js">user.find().exec(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,users</span>)</span>{ <span class="hljs-comment">//&#x5F02;&#x6B65;&#x6267;&#x884C;(&#x9AD8;&#x624B;&#x6240;&#x7528;)&#xFF0C;exec&#x662F;&#x6267;&#x884C;&#x7684;&#x610F;&#x601D;&#xFF0C;find()&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x91CC;&#x6709;&#x4E00;&#x4E2A;exec&#x65B9;&#x6CD5;</span>
+    <span class="hljs-built_in">console</span>.log(users);
+})
+</code></pre>
+<p><strong>Update &#x66F4;&#x65B0;</strong></p>
+<pre><code class="lang-js">  mengmeng.userName=<span class="hljs-string">&apos;meng&apos;</span>
+  mengmeng.password=<span class="hljs-string">&apos;abc&apos;</span>
+  mengmeng.save()
+</code></pre>
+<pre><code class="lang-js">user.findById({_id: <span class="hljs-string">&apos;57ecba5b0003da23c26e6f2b&apos;</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,user</span>)</span>{
+    user.userName=<span class="hljs-string">&apos;rrr&apos;</span>
+    user.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x66F4;&#x65B0;&#x4E86;&apos;</span>);
+    })
+  })
+  <span class="hljs-comment">//&#x67E5;&#x627E;</span>
+  user.find().exec(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,users</span>)</span>{ <span class="hljs-comment">//&#x5F02;&#x6B65;&#x6267;&#x884C;</span>
+    <span class="hljs-built_in">console</span>.log(users);
+  })
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x6700;&#x540E;&#x67E5;&#x8BE2;&#x5230;&#x7684;&#x662F;&#x66F4;&#x65B0;&#x524D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x662F;&#x5C06;&#x67E5;&#x8BE2;&#x653E;&#x5728;save()&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;</p>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x5927;&#x5199;User&#x8868;&#x793A;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5C0F;&#x5199;user&#x8868;&#x793A;&#x662F;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x5BF9;&#x8C61;</span>
+User.findById({_id: <span class="hljs-string">&apos;57ecc883c11fff0d028ceab3&apos;</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,user</span>)</span>{
+  user.userName=<span class="hljs-string">&apos;rrr&apos;</span>
+  user.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x66F4;&#x65B0;&#x4E86;&apos;</span>);
+    <span class="hljs-comment">//&#x67E5;&#x627E;</span>
+    User.find().exec(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,users</span>)</span>{ <span class="hljs-comment">//&#x5F02;&#x6B65;&#x6267;&#x884C;</span>
+      <span class="hljs-built_in">console</span>.log(users);
+    })
+  })
+})
+</code></pre>
+<p><strong>Remove &#x5220;</strong></p>
+<pre><code class="lang-js">User.findById({_id: <span class="hljs-string">&apos;57ecc883c11fff0d028ceab3&apos;</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,user</span>)</span>{
+  user.userName=<span class="hljs-string">&apos;rrr&apos;</span>
+  user.remove(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5220;&#x9664;&#x4E86;&apos;</span>);
+    <span class="hljs-comment">//&#x67E5;&#x627E;</span>
+    User.find().exec(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,users</span>)</span>{ <span class="hljs-comment">//&#x5F02;&#x6B65;&#x6267;&#x884C;</span>
+      <span class="hljs-built_in">console</span>.log(users);
+    })
+  })
+})
+</code></pre>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		@font-face {
+		font-family: "iconfont";
+		src:url('font/iconfont.eot?t=1471164223');
+		src:url('font/iconfont.eot?t=1471164223#iefix') format('embedded-opentype'),
+			url('font/iconfont.woff?t=1471164223') format('woff'), 
+			url('font/iconfont.ttf?t=1471164223') format('truetype'), 
+			url('font/iconfont.svg?t=1471164223#iconfont') format('svg');
+		}
+		.iconfont{
+		    font-family:"iconfont" !important;
+		    font-size:16px;
+		    font-style:normal;
+		    -webkit-font-smoothing: antialiased;
+		    -webkit-text-stroke-width: 0.2px;
+		    -moz-osx-font-smoothing: grayscale;
+		    font-size: 30px;
+			margin:0 10px;
+			cursor:pointer;
+		}
+		@keyframes picRot{
+			0%{transform: rotate(0deg);-webkit-transform:rotate(0deg);}
+			100%{transform:rotate(360deg);-webkit-transform:rotate(360deg);}
+		}
+		@-webkit-keyframes picRot{
+			0%{transform: rotate(0deg);-webkit-transform:rotate(0deg);}
+			100%{transform:rotate(360deg);-webkit-transform:rotate(360deg);}
+		}
+		.animated{
+			animation-duration:3s;
+			animation-timing-function:linear;
+		}
+		.infinite{
+			animation-iteration-count: infinite;
+		}
+		.pic-animated{
+			animation-name:picRot;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.list{
+			float: left;
+			padding-left:20px;
+		}
+		.list span{
+			display: block;
+			font-size: 16px;
+			line-height: 2rem;
+			cursor:pointer;
+		}	
+		.color{
+			color:red;
+		}
+		.wrap{
+			float: left;
+			width: 500px;
+			height: 300px;
+			background-color: #0081df;
+			margin-top: 100px;
+			margin-left: 100px;
+		}
+		.picBox{
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			background-color: #fff;
+			margin: 0 auto;
+			margin-top: 10px;
+		}	
+		.pic{
+			width: 130px;
+			height: 130px;
+			border-radius:50%;
+			margin:10px;
+		}
+		#name{
+			display: block;
+			width:300px;
+			float: left;
+			margin-left: 50px;
+			margin-top: 30px;			
+		}
+		#time{
+			float: left;
+			display: block;
+			width: 100px;
+			margin-top: 30px;
+			text-align: right;
+		}
+		#progressBar{
+			position:relative;
+			cursor:pointer;
+			width: 400px;
+			height: 3px;
+			margin: 0 auto;
+			background-color: #005da7;
+			margin-top: 65px;
+		}
+		#progress{
+			width:0%;
+			background-color: #fff;
+			height: 3px;
+
+		}
+		.circle{
+			position:absolute;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			top:-3px;
+			left:0px;
+			background-color:#fff;
+		}
+		.icon{
+			width: 500px;
+			margin-top: 10px;
+			text-align: center;
+		}
+		
+		.iconfont:hover{
+			box-shadow: 0 0 14px #fff;
+		}
+		#volumeBtn{
+			position:relative;
+		}
+		.volumeBox{
+			position:absolute;
+			top:-115px;
+			left:10px;
+			width: 29px;
+			height: 106px;
+			background-color: #404040;
+			opacity: 0.8;
+		}
+		.box1{
+			width: 3px;
+			height: 80px;
+			background-color:#fff;
+
+			margin: 0 auto;
+			margin-top: 13px;
+			/*transform: rotate(180deg);*/
+		}
+		.box2{
+			position:relative;
+			width:3px;
+			height:0px;
+			cursor:pointer;
+			background-color:#7a7a7a;
+			
+		}
+		.yuan{
+			position:absolute;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			top:0px;
+			left:-2px;
+			background-color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="list">
+		<span>韩安旭-多幸运</span>
+		<span>小贱、星弟-当我唱起这首歌</span>
+		<span>庄心妍-以后的以后</span>
+		<span>李克勤-红日</span>
+		<span>黄雅莉-蝴蝶泉边</span>
+		<span>筷子兄弟-小苹果</span>
+		<span>刘庭羽-我要我们在一起</span>
+		<span>安塞骑兵-红山果</span>
+		<span>小虎队-爱</span>
+		<span>庄心妍、祁隆-一万个舍不得</span>
+		<span>程响-不该相遇在秋天</span>
+		<span>蓝波-你到底有没有爱过我</span>
+		<span>周笔畅-趁早</span>
+		<span>李婉如-莫斯科没有眼泪</span>
+		<span>许嵩-认错</span>
+		<span>马博-菊花爆满山</span>
+		<span>郭靖-下一个天亮</span>
+		<span>群星-北京东路的日子</span>
+		<span>卓依婷-捉泥鳅</span>
+		<span>凤凰传奇-绿旋风</span>
+	</div>
+	<div class="wrap">
+		<!-- <audio id="music" src="source/韩安旭 - 多幸运.mp3">
+		<p>您的播放器不支持audio</p>
+		</audio> -->
+		<div class="picBox"><img class="pic animated infinite" src="images/pic1.jpg" alt=""></div>
+		<span id="name"></span>
+		<span id="time">00:00/00:00</span>
+		<div id="progressBar">
+			<div id="progress">
+				<span class="circle"></span>
+			</div>
+		</div>
+		<div class="icon">
+			<span id="prevBtn"><i class="iconfont">&#xe610;</i></span><!-- 上一首 -->
+			<span id="playBtn"><i class="iconfont">&#xe644;</i></span><!-- 播放 -->
+			<span id="nextBtn"><i class="iconfont">&#xe639;</i></span><!-- 下一首 -->
+			<!-- <i class="iconfont" id="stopBtn">&#xe62e;</i> --><!-- 停止 -->
+			<span id="collectBtn"><i class="iconfont">&#xe655;</i></span><!-- 收藏 -->
+			<span id="downloadBtn"><i class="iconfont">&#xe6c8;</i></span><!-- 下载 -->
+			<span id="circulationBtn"><i class="iconfont">&#xe630;</i></span><!-- 单曲循环 -->
+			<span id="volumeBtn">
+				<i class="iconfont">&#xe624;</i>
+				<div class="volumeBox" id="volumeBox">
+					<div class="box1"  id="box1">
+						<div class="box2" id="box2">
+							<span class="yuan"></span>
+						</div>
+					</div>
+				</div>
+			</span><!-- 音量 -->
+		</div>
+	</div>
+	<script src="js/jquery-1.10.2.js"></script>
+	<script>
+		function G(sId){
+			return document.getElementById(sId);
+		}
+		function timeFormat(time){
+			var minute = Math.floor(time / 60);
+			var second = Math.floor(time % 60);
+			if(minute < 10){
+				minute = "0" + minute;
+			}
+			if(second < 10){
+				second = '0' + second;
+			}
+			return minute + ":" + second;
+		}
+		window.onload = function(){
+			var prevBtn = G('prevBtn');
+			var playBtn = G('playBtn');
+			var nextBtn = G('nextBtn');
+			var collectBtn = G('collectBtn');
+			var downloadBtn = G('downloadBtn');
+			var circulationBtn = G('circulationBtn');
+			var volumeBtn = G('volumeBtn');
+			var time = G('time');
+			var progress = G('progress');
+			var progressBar = G('progressBar');
+			var box1 = G('box1');
+			var box2 = G('box2');
+			var volumeBox = G('volumeBox');
+
+			var music = new Audio();
+			songArr = [
+				"source/韩安旭 - 多幸运.mp3",
+				"source/小贱、星弟 - 当我唱起这首歌.mp3",
+				"source/庄心妍 - 以后的以后.mp3",
+				"source/李克勤 - 红日.mp3",
+				"source/黄雅莉 - 蝴蝶泉边.mp3",
+				"source/筷子兄弟 - 小苹果.mp3",
+				"source/刘庭羽 - 我要我们在一起.mp3",
+				"source/安与骑兵 - 红山果.mp3",
+				"source/小虎队 - 爱.mp3",
+				"source/庄心妍、祁隆 - 一万个舍不得.mp3",
+				"source/程响 - 不该相遇在秋天.mp3",
+				"source/蓝波 - 你到底有没有爱过我.mp3",
+				"source/周笔畅 - 趁早.mp3",
+				"source/李婉茹 - 莫斯科没有眼泪.mp3",
+				"source/许嵩 - 认错.mp3",
+				"source/马博 - 菊花爆满山.mp3",
+				"source/郭静 - 下一个天亮 - 单曲版.mp3",
+				"source/群星 - 北京东路的日子.mp3",
+				"source/卓依婷 - 捉泥鳅.mp3",
+				"source/凤凰传奇 - 绿旋风.mp3"
+			]
+
+			
+			var musicCur = 0;
+			var musicDur = 0;
+			music.addEventListener('timeupdate',function(e){
+				//当前时间/总时间
+				musicCur = music.currentTime;
+				musicDur = music.duration;	
+				time.innerHTML = timeFormat(musicCur) + "/" + timeFormat(musicDur);
+				//进度条
+				progress.style.width = (musicCur / musicDur) * 100 + '%';
+				$('.circle').css('left',progress.style.width);
+			})
+			//单击进度条
+			progressBar.addEventListener('click',function(e){
+				progress.style.width = e.clientX - progressBar.offsetLeft + 'px';
+				$('.circle').css('left',progress.style.width);
+				progressBar.style.width = '400px';
+				music.currentTime = parseInt(progress.style.width) / parseInt(progressBar.style.width) * musicDur;
+			})
+
+			//单击歌曲	
+			var spanIndex = 0;
+			$('.list span').click(function(){
+				spanIndex = $(this).index();
+				music.src = songArr[spanIndex];
+				music.play();
+				$('#playBtn').empty();
+				$('#playBtn').append('<i class="iconfont" id="playBtn">&#xf0067;</i>');
+				$('.list span').removeClass('color');
+				$(this).addClass('color');
+				$('#name').text($(this).text());
+				$('.pic').attr('src',"images/pic" + (spanIndex + 1) + '.jpg').addClass('pic-animated');
+			})
+
+			var timer = setInterval(go,1000);
+			function go(){
+				musicCur = music.currentTime;
+				musicDur = music.duration;				
+				if(musicCur == musicDur){
+					spanIndex ++;
+					music.src = songArr[spanIndex];
+					music.play();
+					$('.list span').removeClass('color');
+					$('.list span').eq(spanIndex).addClass('color');
+					$('#name').text($('.list span').eq(spanIndex).text());
+					$('.pic').attr('src',"images/pic" + (spanIndex + 1) + '.jpg').addClass('pic-animated');
+					if(spanIndex == $('.list span').size()){
+						$('#name').text($('.list span').eq(spanIndex - 1).text());	
+						$('.pic').attr('src','images/pic' + ($('.list span').size()) + '.jpg').removeClass('pic-animated');
+						$('#playBtn').empty();
+						$('#playBtn').append('<i class="iconfont" id="playBtn">&#xe644;</i>');
+						clearInterval(timer);
+					}
+				}
+			}
+
+			// if(spanIndex >= $('.list span').size()){
+			// 	spanIndex = $('.list span').size() - 1;
+			// 	musicCur = musicDur;
+			// 	$('.pic').attr('src','images.pic' + (spanIndex - 1) + '.jpg').addClass('pic-animated');
+			// 	clearInterval(timer);
+			// }
+			//上一首
+			prevBtn.addEventListener('click',function(){
+				spanIndex --;
+				if(spanIndex < 0){
+					spanIndex = 0;
+				}
+				music.src = songArr[spanIndex];
+				music.play();
+				$('.list span').removeClass('color');
+				$('.list span').eq(spanIndex).addClass('color');
+				$('#name').text($('.list span').eq(spanIndex).text());
+				$('.pic').attr('src',"images/pic" + (spanIndex + 1) + '.jpg').addClass('pic-animated');	
+			})
+			//播放、暂停
+			playBtn.addEventListener('click',function(){
+				music.paused ? music.play() : music.pause();
+				if(music.paused){
+					$('#playBtn').empty();
+					$('#playBtn').append('<i class="iconfont" id="playBtn">&#xe644;</i>');
+					$('.pic').removeClass('pic-animated');
+				}else{
+					$('#playBtn').empty();
+					$('#playBtn').append('<i class="iconfont" id="playBtn">&#xf0067;</i>');
+					$('.pic').addClass('pic-animated');					
+				}
+
+			})
+			//下一首
+			nextBtn.addEventListener('click',function(){
+				spanIndex ++;
+				var num = $('.list span').size() - 1;
+				if(spanIndex > num){
+					spanIndex = num;
+				}
+				music.src = songArr[spanIndex];
+				music.play();
+				$('.list span').removeClass('color');
+				$('.list span').eq(spanIndex).addClass('color');
+				$('#name').text($('.list span').eq(spanIndex).text());		
+				$('.pic').attr('src',"images/pic" + (spanIndex + 1) + '.jpg').addClass('pic-animated');
+				
+			})
+			//收藏
+			var plag = false;
+			$('#collectBtn').click(function(){
+				if(plag == false){
+					$('#collectBtn').empty();
+					$('#collectBtn').append('<i class="iconfont">&#xe62f;</i>');
+					alert('收藏成功！');
+					plag = true;
+				}else{
+					$('#collectBtn').empty();
+					$('#collectBtn').append('<i class="iconfont">&#xe655;</i>');
+					alert('已取消收藏！');
+					plag = false;
+				}				
+			})
+			//单曲循环
+			//音量
+			$('.volumeBox').hide();
+			volumeBtn.addEventListener('mouseover',function(){
+				$('.volumeBox').show();
+			})
+			volumeBtn.addEventListener('mouseout',function(){
+				$('.volumeBox').hide();
+			})
+			box1.addEventListener('click',function(e){
+
+				box1.style.height = '80px';
+				var top = volumeBtn.offsetTop - parseInt(box1.style.height) - 13;			
+				box2.style.height = e.clientY - top + 'px';
+				$('.yuan').css('top',e.clientY - top + 'px');
+				music.volume =1 - parseInt(box2.style.height) / parseInt(box1.style.height);
+			})	
+			
+		}
+	</script>
+</body>
+</html>

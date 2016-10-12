@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li class="active"><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    webpack基础
+">
+    webpack基础
+</a><ul><li><a href="#t1初始化项目">初始化项目</a></li><li><a href="#t22.webpack和webpack-dev-server的基本命令">2.webpack和webpack-dev-server的基本命令</a></li><li><a href="#t33.devServer">3.devServer</a></li><li><a href="#t44.devtool">4.devtool</a></li><li><a href="#t55.多文件入口">5.多文件入口</a></li><li><a href="#t66.resolve解析">6.resolve解析</a></li><li><a href="#t77.使用Babel-loader来解析es6和jsx">7.使用Babel-loader来解析es6和jsx</a></li><li><a href="#t88.解析样式文件">8.解析样式文件</a></li><li><a href="#t99.图片加载">9.图片加载</a></li><li><a href="#t1010.图标字体等资源">10.图标字体等资源</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    webpack&#x57FA;&#x7840;
+">
+    webpack&#x57FA;&#x7840;
+ <a href="#t0
+    webpack&#x57FA;&#x7840;
+"> # </a></h1>
+
+<p>webpack&#x662F;&#x4E00;&#x6B3E;&#x5F3A;&#x5927;&#x7684;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x5668;&#x517C;&#x6253;&#x5305;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x80FD;&#x628A;&#x5404;&#x79CD;&#x8D44;&#x6E90;&#xFF0C;&#x4F8B;&#x5982;JS&#xFF08;&#x542B;JSX&#xFF09;&#x3001;coffee&#x3001;&#x6837;&#x5F0F;&#xFF08;&#x542B;less/sass&#xFF09;&#x3001;&#x56FE;&#x7247;&#x7B49;&#x90FD;&#x4F5C;&#x4E3A;&#x6A21;&#x5757;&#x6765;&#x4F7F;&#x7528;&#x548C;&#x5904;&#x7406;&#x3002;<a href="http://webpack.github.io/">&#x5B98;&#x7F51;</a></p>
+<p>webpack:</p>
+<ul>
+<li>ES6&#x6A21;&#x5757;&#xFF0C;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;bundle.js</li>
+<li>&#x8D1F;&#x8D23;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x57FA;&#x7840;&#x8BBE;&#x65BD;dev-server</li>
+<li>&#x8D1F;&#x8D23;&#x7F16;&#x8BD1;&#x4EA7;&#x54C1;&#x4EE3;&#x7801;</li>
+</ul>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C06;&#x4E00;&#x6B65;&#x6B65;&#x719F;&#x6089;Webpack&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5B83;&#x6765;&#x642D;&#x5EFA;&#x4E00;&#x5957;&#x524D;&#x7AEF;&#x5DE5;&#x4F5C;&#x6D41;&#x3002;</p>
+<h2 id="t1&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;">&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE; <a href="#t1&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;"> # </a></h2>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9879;&#x76EE;</p>
+<pre><code class="lang-js">$ mkdir webpack-demos &amp;&amp; cd webpack-demos
+$ git init
+$ touch README.md .gitignore
+$ npm init
+</code></pre>
+<p>&#x7F16;&#x8F91;.gitignore</p>
+<pre><code class="lang-js">node_modules
+*.log*
+.idea
+</code></pre>
+<p>&#x5EFA;&#x7ACB;src&#x548C;build&#x4E24;&#x4E2A;&#x76EE;&#x5F55;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// src &#x76EE;&#x5F55;&#x5B58;&#x653E;&#x6E90;&#x7801;&#xFF0C;build &#x76EE;&#x5F55;&#x5B58;&#x653E;&#x7F16;&#x8BD1;&#x6253;&#x5305;&#x4E4B;&#x540E;&#x7684;&#x8D44;&#x6E90;</span>
+$ mkdir src build
+$ cd src &amp;&amp; touch index.js component.js
+$ cd ../ &amp;&amp; touch index.html
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">/* src/index.js */</span>
+<span class="hljs-keyword">var</span> component = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./component.js&apos;</span>);
+
+component();
+<span class="hljs-comment">/* src/component.js */</span>
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  alert(<span class="hljs-string">&apos;component&apos;</span>);
+}
+<span class="hljs-comment">/*index.html */</span>
+&lt;!DOCTYPE html&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Webpack demos<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;./build/bundle.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</span></code></pre>
+<p>&#x4E0B;&#x8F7D;webpack&#x548C;webpack-dev-server</p>
+<pre><code class="lang-shell"># &#x5B89;&#x88C5;&#x5E76;&#x4FDD;&#x5B58;&#x5728;&#x9879;&#x76EE;&#x7684;&#x4F9D;&#x8D56;&#x4E2D;
+$ npm install --save-dev webpack webpack-dev-server
+# &#x5982;&#x679C;&#x60F3;&#x76F4;&#x63A5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4F7F;&#x7528;webpack&#x6216;webpack-dev-server&#x547D;&#x4EE4;&#xFF0C;&#x8BF7;&#x5168;&#x5C40;&#x5B89;&#x88C5;
+$ npm install -g webpack webpack-dev-server
+</code></pre>
+<p>&#x521B;&#x5EFA;webpack&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>$ touch webpack.config.js
+</code></pre><p><code># &#x8BF7;&#x6CE8;&#x610F;webpack.config.js&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x547D;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x9700;&#x8981;&#x4E25;&#x683C;&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x547D;&#x540D;&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;&#x62A5;Output filename not configured&#x7684;&#x9519;&#x8BEF;&#xFF1B;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6309;&#x8FD9;&#x4E2A;&#x547D;&#x540D;&#xFF0C;&#x90A3;&#x4E48;&#x5728;webpack&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#x901A;&#x8FC7;--conf&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;webpack --config conf.js</code></p>
+<p>&#x8FDB;&#x884C;&#x57FA;&#x672C;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+    entry: path.resolve(__dirname, <span class="hljs-string">&apos;src/index.js&apos;</span>),
+    output: {
+        path: path.resolve(__dirname, <span class="hljs-string">&apos;build&apos;</span>),
+        filename: <span class="hljs-string">&apos;bundle.js&apos;</span>
+    },
+};
+</code></pre>
+<p>&#x6267;&#x884C;webpack&#x547D;&#x4EE4;,&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x7528;&#x7684;&#x662F;&#x9879;&#x76EE;&#x5185;&#x5B89;&#x88C5;&#x7684;webpack</p>
+<pre><code class="lang-shell">$ ./node_modules/.bin/webpack
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code>Hash: cf7cc9272c664f542fcb
+Version: webpack 1.13.0
+Time: 80ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  2.04 kB       0  [emitted]  main
+   [0] ./src/index.js 60 bytes {0} [built]
+   [1] ./src/component.js 57 bytes {0} [built]
+</code></pre><p>build&#x76EE;&#x5F55;&#x4E0B;&#x4E5F;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x4E2A;bundle.js&#x6587;&#x4EF6;</p>
+<h2 id="t22.webpack&#x548C;webpack-dev-server&#x7684;&#x57FA;&#x672C;&#x547D;&#x4EE4;">2.webpack&#x548C;webpack-dev-server&#x7684;&#x57FA;&#x672C;&#x547D;&#x4EE4; <a href="#t22.webpack&#x548C;webpack-dev-server&#x7684;&#x57FA;&#x672C;&#x547D;&#x4EE4;"> # </a></h2>
+<pre><code>$ webpack --help
+</code></pre><p>&#x6267;&#x884C;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x770B;&#x5230;&#x5F88;&#x591A;webpack&#x76F8;&#x5173;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x9009;&#x53D6;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x4ECB;&#x7ECD;&#x4E0B;&#x3002;</p>
+<ul>
+<li><code>webpack</code> &#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x7F16;&#x8BD1;</li>
+<li><code>webpack -p</code> &#x4EA7;&#x54C1;&#x7F16;&#x8BD1;&#x53CA;&#x538B;&#x7F29;</li>
+<li><code>webpack --watch</code> &#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x6301;&#x7EED;&#x7684;&#x76D1;&#x542C;&#x6587;&#x4EF6;&#x53D8;&#x52A8;&#x6765;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;(&#x975E;&#x5E38;&#x5FEB;!)</li>
+<li><code>webpack -d</code> &#x5F15;&#x5165; source maps</li>
+<li><code>webpack --progress</code> &#x663E;&#x793A;&#x6784;&#x5EFA;&#x8FDB;&#x5EA6;</li>
+<li><code>webpack --display-error-details</code> &#x8FD9;&#x4E2A;&#x5F88;&#x6709;&#x7528;&#xFF0C;&#x663E;&#x793A;&#x6253;&#x5305;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x51FA;&#x9519;&#x4FE1;&#x606F;</li>
+<li><code>webpack --profile</code> &#x8F93;&#x51FA;&#x6027;&#x80FD;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6BCF;&#x4E00;&#x6B65;&#x7684;&#x8017;&#x65F6;</li>
+</ul>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;webpack-dev-server&#x6765;&#x8D77;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;,&#x8FD9;&#x91CC;&#x4EFB;&#x7136;&#x7528;&#x7684;&#x662F;&#x9879;&#x76EE;&#x5185;&#x90E8;&#x7684;webpack-dev-server</p>
+<pre><code>$ ./node_modules/.bin/webpack-dev-server --progress --colors
+</code></pre><p>&#x4FEE;&#x6539;&#x6211;&#x4EEC;&#x7684;index.html&#x4EE3;&#x7801;</p>
+<pre><code class="lang-js">&lt;script type=<span class="hljs-string">&quot;text/javascript&quot;</span> src=<span class="hljs-string">&quot;/bundle.js&quot;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</span></code></pre>
+<p>&#x6253;&#x5F00;<code>localhost:8080</code>&#xFF0C;&#x56DE;&#x8F66;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x6267;&#x884C;webpack-dev-server&#x540E;&#x9762;&#x7684;&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#x5462;&#xFF1F;</p>
+<ul>
+<li><code>webpack-dev-server</code> - &#x5728; localhost:8080 &#x5EFA;&#x7ACB;&#x4E00;&#x4E2A; Web &#x670D;&#x52A1;&#x5668;</li>
+<li><code>webpack-dev-server --devtool eval</code> - &#x4E3A;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x6E90;&#x5730;&#x5740;&#x3002;&#x5F53;&#x6709;&#x4EFB;&#x4F55;&#x62A5;&#x9519;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x66F4;&#x52A0;&#x7CBE;&#x786E;&#x5730;&#x5B9A;&#x4F4D;&#x5230;&#x6587;&#x4EF6;&#x548C;&#x884C;&#x53F7;</li>
+<li><code>webpack-dev-server --progress</code> - &#x663E;&#x793A;&#x5408;&#x5E76;&#x4EE3;&#x7801;&#x8FDB;&#x5EA6;</li>
+<li><code>webpack-dev-server --colors</code> - &#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x663E;&#x793A;&#x989C;&#x8272;</li>
+<li><code>webpack-dev-server --content-base build</code> -  webpack-dev-server&#x670D;&#x52A1;&#x4F1A;&#x9ED8;&#x8BA4;&#x4EE5;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4F3A;&#x670D;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;content-base&#x7684;&#x8BDD;&#xFF0C;&#x670D;&#x52A1;&#x7684;&#x6839;&#x8DEF;&#x5F84;&#x5219;&#x4E3A;build&#x76EE;&#x5F55;</li>
+<li><code>webpack-dev-server --inline</code> &#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x52A0;&#x4E0A;dev-server&#x7684;&#x7BA1;&#x7406;&#x4EE3;&#x7801;&#xFF0C;&#x5B9E;&#x73B0;&#x70ED;&#x66F4;&#x65B0;</li>
+<li><code>webpack-dev-server --hot</code> &#x5F00;&#x542F;&#x4EE3;&#x7801;&#x70ED;&#x66FF;&#x6362;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;HotModuleReplacementPlugin</li>
+<li><code>webpack-dev-server --port 3000</code> &#x8BBE;&#x7F6E;&#x670D;&#x52A1;&#x7AEF;&#x53E3;</li>
+</ul>
+<blockquote>
+<p>&#x5173;&#x4E8E;webpack-dev-server&#x7684;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#xFF1A;webpack-dev-server&#x662F;&#x4E00;&#x4E2A;&#x5C0F;&#x578B;&#x7684;node.js Express&#x670D;&#x52A1;&#x5668;,&#x5B83;&#x4F7F;&#x7528;webpack-dev-middleware&#x4E2D;&#x95F4;&#x4EF6;&#x6765;&#x4E3A;&#x901A;&#x8FC7;webpack&#x6253;&#x5305;&#x751F;&#x6210;&#x7684;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x63D0;&#x4F9B;Web&#x670D;&#x52A1;&#x3002;&#x5B83;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x901A;&#x8FC7;Socket.IO&#x8FDE;&#x63A5;&#x7740;webpack-dev-server&#x670D;&#x52A1;&#x5668;&#x7684;&#x5C0F;&#x578B;&#x8FD0;&#x884C;&#x65F6;&#x7A0B;&#x5E8F;&#x3002;webpack-dev-server&#x53D1;&#x9001;&#x5173;&#x4E8E;&#x7F16;&#x8BD1;&#x72B6;&#x6001;&#x7684;&#x6D88;&#x606F;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x6839;&#x636E;&#x6D88;&#x606F;&#x4F5C;&#x51FA;&#x54CD;&#x5E94;&#x3002;</p>
+<h2 id="t33.devServer">3.devServer <a href="#t33.devServer"> # </a></h2>
+</blockquote>
+<p>&#x521A;&#x624D;&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x5728;&#x8FD0;&#x884C;webpack-dev-server&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x540E;&#x9762;&#x5E26;&#x4E86;&#x4E00;&#x4E32;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;devServer&#x5B57;&#x6BB5;&#x7EDF;&#x4E00;&#x5728;webpack.config.js&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x7EF4;&#x62A4;&#x3002;</p>
+<pre><code>/* webpack.config.js */
+var path = require(&apos;path&apos;);
+
+module.exports = {
+  entry: path.resolve(__dirname, &apos;src/index.js&apos;),
+  output: {
+      path: path.resolve(__dirname, &apos;build&apos;),
+      filename: &apos;bundle.js&apos;,
+  },
+  devServer: {
+    publicPath: &quot;/static/&quot;,
+    stats: { colors: true },
+    port: 3000,
+    inline: true
+  }
+};
+</code></pre><p>&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7B80;&#x5316;scripts&#x5B57;&#x6BB5;&#x7684;&#x914D;&#x7F6E;&#x4E86;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;scripts&quot;</span>: {
+    <span class="hljs-string">&quot;dev&quot;</span>: <span class="hljs-string">&quot;./node_modules/.bin/webpack-dev-server&quot;</span>
+}
+</code></pre>
+<p>&#x5BF9;&#x5E94;&#x7684;&#x4FEE;&#x6539;index.html&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x8D44;&#x6E90;&#x5F15;&#x7528;&#x5730;&#x5740;</p>
+<pre><code>&lt;script src=&quot;/static/bundle.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>ok, npm run dev&#x5373;&#x53EF;</p>
+<h2 id="t44.devtool">4.devtool <a href="#t44.devtool"> # </a></h2>
+<p>&#x6211;&#x4EEC;&#x5728;&#x914D;&#x7F6E;&#x4E2D;&#x65B0;&#x589E;devtool&#x5B57;&#x6BB5;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x503C;&#x4E3A;source-map&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x76F4;&#x63A5;&#x8C03;&#x8BD5;&#x6211;&#x4EEC;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x7684;sources&#x4E0B;&#xFF0C;&#x70B9;&#x5F00;&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>webpack://</code>&#x76EE;&#x5F55;&#xFF0C;&#x70B9;&#x5F00;&#x6709;&#x60CA;&#x559C;&#x54E6;&#x3002;</p>
+<p>&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>webpack.config.js</code></p>
+<pre><code>devtool: &apos;cheap-module-source-map&apos;
+</code></pre><p>devtool&#x53EF;&#x4EE5;&#x6709;&#x51E0;&#x4E2A;&#x914D;&#x7F6E;&#x9879;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>devtool</th>
+<th>build speed</th>
+<th>rebuild speed</th>
+<th>production supported</th>
+<th>quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eval</td>
+<td>+++</td>
+<td>+++</td>
+<td>no</td>
+<td>generated code</td>
+</tr>
+<tr>
+<td>cheap-eval-source-map</td>
+<td>+</td>
+<td>++</td>
+<td>no</td>
+<td>transformed code (lines only)</td>
+</tr>
+<tr>
+<td>cheap-source-map</td>
+<td>+</td>
+<td>o</td>
+<td>yes</td>
+<td>transformed code (lines only)</td>
+</tr>
+<tr>
+<td>cheap-module-eval-source-map</td>
+<td>o</td>
+<td>++</td>
+<td>no</td>
+<td>original source (lines only)</td>
+</tr>
+<tr>
+<td>cheap-module-source-map</td>
+<td>o</td>
+<td>-</td>
+<td>yes</td>
+<td>original source (lines only)</td>
+</tr>
+<tr>
+<td>eval-source-map</td>
+<td>&#x2013;</td>
+<td>+</td>
+<td>no</td>
+<td>original source</td>
+</tr>
+<tr>
+<td>source-map</td>
+<td>&#x2013;</td>
+<td>&#x2013;</td>
+<td>yes</td>
+<td>original source</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t55.&#x591A;&#x6587;&#x4EF6;&#x5165;&#x53E3;">5.&#x591A;&#x6587;&#x4EF6;&#x5165;&#x53E3; <a href="#t55.&#x591A;&#x6587;&#x4EF6;&#x5165;&#x53E3;"> # </a></h2>
+<pre><code>$ cd src &amp;&amp; touch entry1.js entry2.js
+</code></pre><pre><code>/* webpack.config.js */
+var path = require(&apos;path&apos;);
+
+module.exports = {
+    entry: {
+      entry1: &apos;./src/entry1.js&apos;,
+      entry2: &apos;./src/entry2.js&apos;,
+    },
+    output: {
+        path: path.resolve(__dirname, &apos;build&apos;),
+        filename: &apos;[name].js&apos;
+    },
+};
+</code></pre><h2 id="t66.resolve&#x89E3;&#x6790;">6.resolve&#x89E3;&#x6790; <a href="#t66.resolve&#x89E3;&#x6790;"> # </a></h2>
+<p>resolve&#x4E0B;&#x5E38;&#x7528;&#x7684;&#x662F;extension&#x548C;alias&#x5B57;&#x6BB5;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
+<ul>
+<li>extension &#x4E0D;&#x7528;&#x5728;require&#x6216;&#x662F;import&#x7684;&#x65F6;&#x5019;&#x52A0;&#x6587;&#x4EF6;&#x540E;&#x7F00;<pre><code>/* webpack.config.js */
+resolve: {
+  extensions: [&quot;&quot;, &quot;.js&quot;, &quot;.jsx&quot;],
+},
+</code></pre></li>
+</ul>
+<pre><code class="lang-js">- <span class="hljs-keyword">var</span> component = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./component.js&apos;</span>);
++ <span class="hljs-keyword">var</span> component = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./component&apos;</span>);
+</code></pre>
+<ul>
+<li>alias &#x914D;&#x7F6E;&#x522B;&#x540D;&#xFF0C;&#x52A0;&#x5FEB;webpack&#x6784;&#x5EFA;&#x7684;&#x901F;&#x5EA6;</li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x5F15;&#x5165;jquery&#x6A21;&#x5757;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4F1A;&#x76F4;&#x63A5;&#x5F15;&#x5165;jqueryPath,&#x800C;&#x4E0D;&#x9700;&#x8981;&#x4ECE;node_modules&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x6309;&#x6A21;&#x5757;&#x7684;&#x67E5;&#x627E;&#x89C4;&#x5219;&#x67E5;&#x627E;,&#x4E0D;&#x9700;&#x8981;webpack&#x53BB;&#x89E3;&#x6790;jquery.js&#x6587;&#x4EF6;</p>
+<p>&#x5148;&#x5B89;&#x88C5;jQuery</p>
+<pre><code>npm install jquery --save
+</code></pre><p>&#x4FEE;&#x6539; webpack.config.js</p>
+<pre><code>resolve: {
+   extensions: [&quot;&quot;,&quot;.js&quot;,&quot;.css&quot;,&quot;.json&quot;],
++  alias: {
++    &apos;jquery&apos;: jqueryPath
++  }
+},
+</code></pre><h2 id="t77.&#x4F7F;&#x7528;Babel-loader&#x6765;&#x89E3;&#x6790;es6&#x548C;jsx">7.&#x4F7F;&#x7528;Babel-loader&#x6765;&#x89E3;&#x6790;es6&#x548C;jsx <a href="#t77.&#x4F7F;&#x7528;Babel-loader&#x6765;&#x89E3;&#x6790;es6&#x548C;jsx"> # </a></h2>
+<p>&#x6211;&#x4EEC;&#x5728;src/index.js&#x91CC;&#x9762;&#x5C1D;&#x8BD5;&#x5199;&#x4E00;&#x4E2A;&#x6700;&#x57FA;&#x672C;&#x7684;&#x7EC4;&#x4EF6;&#x4EE3;&#x7801;&#xFF0C;&#x6682;&#x65F6;&#x4E0D;&#x7528;&#x7406;&#x4F1A;&#x4EE3;&#x7801;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8FD9;&#x4E48;&#x5199;&#xFF0C;&#x8FD9;&#x91CC;&#x5148;&#x628A;ES6&#x8BED;&#x6CD5;&#x548C;JSX&#x8BED;&#x6CD5;&#x52A0;&#x8FDB;&#x6765;&#xFF0C;&#x7528;&#x4E8E;&#x8DD1;&#x901A;&#x6211;&#x4EEC;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#xFF0C;&#x540E;&#x7EED;&#x4F1A;&#x6709;&#x4E13;&#x9898;&#x5185;&#x5BB9;&#x6765;&#x8BE6;&#x7EC6;&#x8BB2;&#x8FF0;&#x3002;</p>
+<p>&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>src/index.js</code></p>
+<pre><code>&apos;use strict&apos;;
+
+import React, { Component } from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+class HelloWorld extends Component {
+  render(){
+    return (
+      &lt;h1&gt;Hello world&lt;/h1&gt;
+    )
+  }
+}
+
+ReactDOM.render(&lt;HelloWorld /&gt;, document.getElementById(&apos;app&apos;));
+</code></pre><p>ok&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x7528;&#x5230;&#x4E86;&#x57FA;&#x672C;&#x7684;react.js&#x548C;react-dom.js&#xFF0C;&#x800C;&#x4E14;&#x4F7F;&#x7528;&#x7684;&#x662F;ES6&#x7684;&#x8BED;&#x6CD5;&#x6765;&#x5C01;&#x88C5;&#x7684;&#x7EC4;&#x4EF6;&#x548C;&#x5E94;&#x7528;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x4E24;&#x4EF6;&#x4E8B;&#xFF1A;</p>
+<ol>
+<li>&#x4E0B;&#x8F7D;&#x76F8;&#x5E94;&#x7684;&#x6A21;&#x5757;&#xFF1A;<pre><code>$ npm install --save react react-dom
+</code></pre></li>
+<li>&#x4E0B;&#x8F7D;&#x5E76;&#x914D;&#x7F6E;babel&#xFF0C;&#x4EE5;&#x89E3;&#x6790;ES6&#x8BED;&#x6CD5;&#x548C;JSX&#x8BED;&#x6CD5;&#x3002;</li>
+</ol>
+<p>babel&#x662F;&#x4E00;&#x6B3E;&#x5F3A;&#x5927;&#x7684;&#x89E3;&#x6790;&#x5668;&#xFF0C;&#x62E5;&#x6709;&#x6D3B;&#x8DC3;&#x800C;&#x4E14;&#x5B8C;&#x5584;&#x7684;&#x751F;&#x6001;&#xFF0C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x505A;JS&#x76F8;&#x5173;&#x7684;&#x5404;&#x79CD;&#x8BED;&#x6CD5;&#x7684;&#x89E3;&#x6790;&#xFF0C;&#x8FD8;&#x63D0;&#x4F9B;&#x4E30;&#x5BCC;&#x7684;&#x63D2;&#x4EF6;&#x529F;&#x80FD;&#x3002;</p>
+<pre><code>
+$ npm install babel-loader babel-core --save-dev
+</code></pre><p>&#x5B89;&#x88C5;&#x540E;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x914D;&#x7F6E;webapck.config.js&#x6587;&#x4EF6;</p>
+<p>&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>webpack.config.js</code></p>
+<pre><code>var path = require(&apos;path&apos;);
+
+module.exports = {
+    entry: path.resolve(__dirname, &apos;src/index.js&apos;),
+    output: {
+        path: path.resolve(__dirname, &apos;build&apos;),
+        filename: &apos;bundle.js&apos;,
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          loader: &apos;babel-loader&apos;
+        }
+      ]
+    }
+};
+</code></pre><p>&#x8FD9;&#x91CC;&#x6307;&#x5B9A;&#x4E86;&#x4F7F;&#x7528;babel-loader&#x6765;&#x89E3;&#x6790;js&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x6CA1;&#x6709;&#x544A;&#x8BC9;babel&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x6765;&#x89E3;&#x6790;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;babelrc&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>$ touch .babelrc
+</code></pre><p>&#x7136;&#x540E;&#x7F16;&#x8F91;babelrc
+&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>.babelrc</code></p>
+<pre><code>{
+  &quot;presets&quot;: [&quot;es2015&quot;, &quot;react&quot;, &quot;stage-0&quot;],
+  &quot;plugins&quot;: []
+}
+</code></pre><p>&#x4E3A;&#x4EC0;&#x4E48;&#x914D;&#x7F6E;&#x7684;&#x662F;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#xFF0C;&#x914D;&#x7F6E;&#x7684;preset&#x5B57;&#x6BB5;&#x662F;&#x5728;&#x4E3A;babel&#x89E3;&#x6790;&#x505A;&#x9884;&#x8BBE;&#xFF0C;&#x544A;&#x8BC9;babel&#x9700;&#x8981;&#x4F7F;&#x7528;&#x76F8;&#x5173;&#x7684;&#x9884;&#x8BBE;&#x63D2;&#x4EF6;&#x6765;&#x89E3;&#x6790;&#x4EE3;&#x7801;&#xFF0C;plugins&#x5B57;&#x6BB5;&#xFF0C;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x6765;&#x914D;&#x7F6E;&#x4F7F;&#x7528;babel&#x76F8;&#x5173;&#x7684;&#x63D2;&#x4EF6;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x6682;&#x4E14;&#x4E0D;&#x88C5;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x5230;&#x4E86;&#x4E09;&#x4E2A;&#x9884;&#x8BBE;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;</p>
+<pre><code>$ npm install --save-dev babel-preset-es2015 babel-preset-react babel-preset-stage-0
+// &#x5176;&#x4E2D;stage-0&#x9884;&#x8BBE;&#x662F;&#x7528;&#x6765;&#x8BF4;&#x660E;&#x89E3;&#x6790;ES7&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x8BED;&#x6CD5;&#x63D0;&#x6848;&#x7684;&#x8F6C;&#x7801;&#x89C4;&#x5219;
+</code></pre><p>&#x597D;&#x4E86;&#xFF0C;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&#x8BD5;&#x4E00;&#x4E0B;&#x5427;</p>
+<pre><code>$ npm run dev
+</code></pre><p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;&#xFF1A;<code>http://localhost:3000/</code></p>
+<h2 id="t88.&#x89E3;&#x6790;&#x6837;&#x5F0F;&#x6587;&#x4EF6;">8.&#x89E3;&#x6790;&#x6837;&#x5F0F;&#x6587;&#x4EF6; <a href="#t88.&#x89E3;&#x6790;&#x6837;&#x5F0F;&#x6587;&#x4EF6;"> # </a></h2>
+<p>style-loader css-loader less-loader</p>
+<p>&#x524D;&#x9762;&#x7684;&#x5927;&#x90E8;&#x5206;&#x5DE5;&#x4F5C;&#x90FD;&#x5728;&#x5904;&#x7406;JS&#x903B;&#x8F91;&#x7684;&#x89E3;&#x6790;&#x548C;&#x52A0;&#x8F7D;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x8FD8;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x63D0;&#x6211;&#x4EEC;&#x7684;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x53BB;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5728;&#x8BFE;&#x7A0B;&#x4E2D;&#x6682;&#x4E14;&#x7EA6;&#x5B9A;&#x4F7F;&#x7528;less&#x9884;&#x5904;&#x7406;&#x5668;&#xFF08;saas&#x7684;&#x7C7B;&#x4F3C;&#xFF09;&#x6765;&#x5199;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x7684;&#x6837;&#x5F0F;&#xFF0C;&#x90A3;&#x4E48;&#x9996;&#x5148;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#x51E0;&#x4E2A;webpack&#x7684;loader</p>
+<pre><code>$ npm install --save-dev style-loader css-loader less-loader
+</code></pre><p>&#x8FDB;&#x884C;webpack&#x914D;&#x7F6E;&#x3002;
+&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>webpack.config.js</code></p>
+<pre><code>loaders: [
+    {
+      test: /\.js$/,
+      loaders: [&apos;react-hot&apos;, &apos;babel&apos;],
+      exclude: path.resolve(__dirname, &apos;node_modules&apos;)
+    },
+    {
+      test: /\.css/,
+      loader: &apos;style!css&apos;
+    },
+    {
+      test: /\.less/,
+      loader: &apos;style!css!less&apos;
+    }
+]
+</code></pre><h2 id="t99.&#x56FE;&#x7247;&#x52A0;&#x8F7D;">9.&#x56FE;&#x7247;&#x52A0;&#x8F7D; <a href="#t99.&#x56FE;&#x7247;&#x52A0;&#x8F7D;"> # </a></h2>
+<pre><code>{
+  test: /\.(jpe?g|png)$/,
+  loader: &apos;file-loader&apos;
+}
+</code></pre><h2 id="t1010.&#x56FE;&#x6807;&#x5B57;&#x4F53;&#x7B49;&#x8D44;&#x6E90;">10.&#x56FE;&#x6807;&#x5B57;&#x4F53;&#x7B49;&#x8D44;&#x6E90; <a href="#t1010.&#x56FE;&#x6807;&#x5B57;&#x4F53;&#x7B49;&#x8D44;&#x6E90;"> # </a></h2>
+<p>&#x56FE;&#x6807;&#x5B57;&#x4F53;&#x7684;&#x52A0;&#x8F7D;&#x53EF;&#x4EE5;&#x9009;&#x62E9;file-loader &#x6216; url-loader &#x8FDB;&#x884C;&#x52A0;&#x8F7D;&#xFF0C;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF08;&#x793A;&#x4F8B;&#x914D;&#x7F6E;&#xFF0C;&#x5927;&#x5BB6;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x6700;&#x597D;&#x8FD8;&#x662F;&#x6309;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x914D;&#x7F6E;&#xFF09;</p>
+<p>1.&#x5B89;&#x88C5;url-loader</p>
+<pre><code>npm install --save-dev url-loader
+</code></pre><p>2.&#x5728;webpack.config.js&#x7684;moduler&#x4E2D;&#x7684;loaders&#x4E2D;&#x589E;&#x52A0;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;</p>
+<pre><code>{
+  test: /\.(woff|woff2|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+  loader: &quot;url?limit=10000&quot;
+}
+</code></pre>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

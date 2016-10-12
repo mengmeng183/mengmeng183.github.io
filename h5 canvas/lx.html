@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		body{
+			background-color: #ccc;
+		}
+		.box{
+			height: 400px;
+			width: 800px;
+			margin: 0 auto;
+		}
+		#myCanvas{
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+    <div class="box">
+    	<canvas id="myCanvas" width="800" height="400"></canvas>
+    </div>
+	
+	<script>
+		function G(sId){
+			return document.getElementById(sId);
+		}
+		
+		window.onload = function(){
+			var c = G('myCanvas');
+			var ctx = c.getContext('2d');
+			var data=[
+				
+				{'x':300,'y':100},
+				{'x':300,'y':300},
+				{'x':100,'y':100}				
+			];
+			var style=[
+				{'lineW':10,'color':'red','bothEnd':'round'},
+				{'lineW':10,'color':'blue','bothEnd':'butt'},
+				{'lineW':10,'color':'yellow','bothEnd':'square'}
+			]
+
+			function drawLine(oCtx,oData,oStyle){
+				oCtx.beginPath();
+				oCtx.moveTo(oData[2].x,oData[2].y);
+				for(var i　in oData){
+					oCtx.lineTo(oData[i].x,oData[i].y);
+					oCtx.lineWidth = oStyle[i].lineW;
+					oCtx.strokeStyle = oStyle[i].color;
+					oCtx.lineCap = oStyle[i].bothEnd;
+					oCtx.stroke();
+				
+				}		
+					oCtx.closePath();
+				
+				
+			}
+			drawLine(ctx,data,style)
+			// ctx.beginPath();
+			// ctx.moveTo(100,100);
+			// ctx.lineTo(300,100);
+			// ctx.lineTo(300,300);
+			// ctx.lineTo(100,100);
+			// ctx.lineWidth = 10;
+			// ctx.strokeStyle = "red";
+			// // ctx.fillStyle = "blue";
+			// ctx.lineCap = 'round';
+			// ctx.stroke();
+			// ctx.closePath();
+		}
+	</script>
+</body>
+</html>

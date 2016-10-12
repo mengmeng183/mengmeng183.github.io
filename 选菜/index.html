@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>中午吃什么</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			position:relative;
+			width: 1300px;
+			height: 600px;
+			/*border:1px solid red;*/
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+		.what{
+			height: 30px;
+			width: 100%;
+			line-height: 600px;
+			text-align: center;
+			font-size: 30px;
+			color:red;
+		}
+		.food{
+			font-size: 40px;
+			color:#000;
+			font-weight: bold;
+		}
+		.btn{			
+			width: 100px;
+			height: 60px;
+			background-color: #666;
+			color:#fff;
+			font-size: 30px;
+			line-height: 40px;
+			text-align: center;
+			margin-top: 300px;
+			margin-left: 580px;
+		}
+		.foods{
+			position:absolute;
+			color:#666;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p class="what">今天中午吃什么？</p>
+		<input type="button" class="btn" value="开始">
+	</div>
+	<script src="js/jquery-1.10.2.js"></script>
+	<script>
+		var foodArr = ["满汉全席","扬州炒饭","肯德基","必胜客","麦当劳","德克士","沙县小吃","水饺","盖饭","米线","炒饭","炒面","脆皮鸡","鸡公煲","麻辣烫","黄焖鸡米饭","凉皮","麻辣拌","驴肉火烧","大盘鸡","重庆小面","板面","刀削面","披萨","烧烤","吉祥馄饨","鸡蛋灌饼","火锅"];
+		var dataArr = [];
+		var data = {};
+		var foodArrL = foodArr.length;
+		var timer = "";	
+		$('.btn').click(function(){
+			if($(this).val() == '开始'){
+				$(this).val('结束');
+				$('.what').text('今天中午吃：');
+				$('.what').append('<span class="food"></span>');
+				timer = setInterval(go,100);			
+				
+			}else{
+				
+				$(this).val('开始');				
+				// $('.what').text('今天中午吃什么？');
+				// $('.food').text('');				
+				$('.foods').remove();								
+				clearInterval(timer);
+			}
+			
+			
+		})
+		function go(){
+			data.top = Math.floor(Math.random()*550);
+			data.left = Math.floor(Math.random()*1150);
+			data.index = Math.floor(Math.random()*foodArrL);
+			dataArr.push(data);
+
+			$('.wrap').append('<span class="foods"></span>');
+			$('.foods:last').text(foodArr[data.index]);
+			$('.foods:last').css('left',data.left);
+			$('.foods:last').css('top',data.top);
+			$('.food').text(foodArr[data.index]);			
+		}				
+	</script>
+</body>
+</html>

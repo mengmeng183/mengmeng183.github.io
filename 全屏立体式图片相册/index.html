@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>flash+xml全屏立体式图片相册效果#demo1</title>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<style type="text/css">
+	
+	html {
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	#flashcontent {
+		height: 100%;
+	}
+
+	body {
+		color: #fff;
+		font-family: verdana,arial,sans-serif;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		background-color: #000;
+	}
+	
+	a, a:active {
+		color:#53A924;
+		}
+		a:hover {
+			color: #fff;
+			}
+		a:active {
+			color: #fff;
+			}
+			
+	#flashError {
+		padding: 20px;
+	}
+	
+
+</style>
+</head>
+<body>
+
+	<div id="flashcontent">
+		
+		<div id="flashError">
+			<h1>You need to upgrade your Flash Player</h1>
+			<p>
+				To view this page you need to have Flash Player 9, and JavaScript turned on. Please <a href="http://www.adobe.com/go/getflashplayer">upgrade you player</a> - it is free, and takes only a few moments. If you belive you <em>do</em> have Flash Player 9 installed, you may <a href="#">bypass the detection</a><a href="#" target="_blank">flash+xml</a> if you wish.
+			</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		// <![CDATA[
+		
+		var so = new SWFObject("images/3d_art_gallery.swf", "albums", "100%", "100%", "9", "#000000");
+		so.addParam("scale", "noscale");
+		so.write("flashcontent");
+		
+		// ]]>
+	</script>
+</body>
+</html>

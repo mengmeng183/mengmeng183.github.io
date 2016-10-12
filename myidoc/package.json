@@ -1,0 +1,75 @@
+{
+    "name": "MengMeng",
+    "version": "0.0.1",
+    "description": "Welcome to mengmeng's blog",
+    "keywords": [
+        "md"
+    ],
+    "homepage": "http://mengmeng183.github.io/myidoc",
+    "author": "mengmeng",
+    "repository": {
+        "type": "git",
+        "url": "https://mengmeng183.github.io"
+    },
+    "licenses": "MIT",
+    "scripts": {
+        "build": "idoc build",
+        "deploy": "git push -u origin coding-pages"
+    },
+    "idoc": {
+        "theme": "default",
+        "md": [
+            "首页.md",
+            {
+                "React专题": [
+                    "React基础知识.md",
+                    "React-router路由.md"
+                ]
+            },
+            {
+                "数据库": [
+                    "mongoose.md",
+                    "mongodb数据库.md",
+                    "客户端操作数据库1.md",
+                    "客户端操作数据库2.md",
+                    "客户端操作数据库3.md"
+                ]
+            },
+            {
+                "部署项目": [
+                    "部署项目.md",
+                    "局域网内模拟部署.md"
+                ]
+            },
+            {
+                "Nodejs基础": [
+                    "HTTP基础知识.md",
+                    "Nodejs模块.md",
+                    "QueryString.md",
+                    "URL.md",
+                    "命令行中体验nodejs.md",
+                    "起一个web服务器.md"
+                ]
+            },
+            {
+                "express": [
+                    "Express.md"
+                ]
+            },
+            {
+                "基础知识": [
+                    "ES6快速入门.md",
+                    "Linux显示Git分支.md",
+                    "Markdown.md",
+                    "NPM使用方法.md",
+                    "Nodejs安装配置.md",
+                    "bootstrap.md",
+                    "material-ui.md",
+                    "webpack基础.md",
+                    "基本shell命令使用.md",
+                    "Git和Github手册.md"
+                ]
+            }
+        ]
+    }
+}

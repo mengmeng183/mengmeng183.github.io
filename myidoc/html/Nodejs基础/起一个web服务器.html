@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li class="active"><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    起一个web服务器
+">
+    起一个web服务器
+</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    &#x8D77;&#x4E00;&#x4E2A;web&#x670D;&#x52A1;&#x5668;
+">
+    &#x8D77;&#x4E00;&#x4E2A;web&#x670D;&#x52A1;&#x5668;
+ <a href="#t0
+    &#x8D77;&#x4E00;&#x4E2A;web&#x670D;&#x52A1;&#x5668;
+"> # </a></h1>
+
+<p>&#x5229;&#x7528; nodejs &#x8D77;&#x4E00;&#x4E2A; web &#x670D;&#x52A1;&#x5668;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x62FF;&#x5230;&#x5B98;&#x7F51;&#x7ED9;&#x51FA;&#x7684; <a href="https://nodejs.org/dist/latest-v4.x/docs/api/synopsis.html">example</a> &#x793A;&#x4F8B;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; example.js &#x6587;&#x4EF6;&#xFF0C;&#x7C98;&#x8D34;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x5230;&#x5BF9;&#x5E94;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6267;&#x884C; <code>node example.js</code>&#xFF0C;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6253;&#x5370;&#x51FA; <code>Server running at http://127.0.0.1:3000/</code>&#xFF0C;&#x5373;&#x6210;&#x529F;&#x542F;&#x52A8;&#x4E86;&#x4E00;&#x4E2A; web &#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+
+<span class="hljs-keyword">const</span> hostname = <span class="hljs-string">&apos;127.0.0.1&apos;</span>;
+<span class="hljs-keyword">const</span> port = <span class="hljs-number">3000</span>;
+
+<span class="hljs-keyword">const</span> server = http.createServer((req, res) =&gt; {
+  res.statusCode = <span class="hljs-number">200</span>;
+  res.setHeader(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;text/plain&apos;</span>);
+  res.end(<span class="hljs-string">&apos;Hello World\n&apos;</span>);
+});
+
+server.listen(port, hostname, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Server running at http://<span class="hljs-subst">${hostname}</span>:<span class="hljs-subst">${port}</span>/`</span>);
+});
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4E0A;&#x9762;&#x7684; js &#x8BED;&#x53E5;&#x4E2D;&#x7528;&#x5230;&#x4E86; ES6 &#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4; nodejs &#x672C;&#x8EAB;&#x4E5F;&#x652F;&#x6301;&#x4E86; ES6 &#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x5177;&#x4F53;&#x652F;&#x6301;&#x7684;&#x7A0B;&#x5EA6;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;&#x5B98;&#x7F51;&#x3002;<a href="https://nodejs.org/en/docs/es6/">ECMAScript 2015 (ES6) and beyond</a></p>
+<p>&#x4E0B;&#x9762;&#x7B80;&#x5355;&#x7684;&#x5206;&#x6790;&#x4E0B;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x52A0;&#x8F7D;&#x4E86;&#x4E00;&#x4E2A; nodejs &#x81EA;&#x5E26;&#x7684;&#x6A21;&#x5757; <code>http</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+</code></pre>
+<p>&#x7136;&#x540E;&#x901A;&#x8FC7; createServer &#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; web &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x901A;&#x8FC7; listen &#x8BA9;&#x670D;&#x52A1;&#x5668; 3000 &#x7AEF;&#x53E3;&#x76D1;&#x542C;&#x8BF7;&#x6C42;&#xFF0C;&#x5F53;&#x76D1;&#x542C;&#x5230;&#x5728; 3000 &#x7AEF;&#x53E3;&#x7684;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x4F1A;&#x6267;&#x884C;&#x533F;&#x540D;&#x56DE;&#x8C03;&#x51FD;&#x6570; ==&gt;</p>
+<pre><code class="lang-js">(req, res) =&gt; {
+  res.statusCode = <span class="hljs-number">200</span>;
+  res.setHeader(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;text/plain&apos;</span>);
+  res.end(<span class="hljs-string">&apos;Hello World\n&apos;</span>);
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC; req&#xFF0C;res &#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x4E3A;&#x8BF7;&#x6C42;&#x4F53;&#x548C;&#x54CD;&#x5E94;&#x4F53;&#x3002;req &#x7528;&#x6765;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982;&#x8BF7;&#x6C42;&#x7C7B;&#x578B;&#xFF0C;&#x8BF7;&#x6C42;&#x662F;&#x4ECE;&#x4EC0;&#x4E48;&#x5730;&#x65B9;&#x53D1;&#x51FA;&#x7684;&#x7B49;&#x7B49;&#x3002;req &#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x7ED9;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x54CD;&#x5E94;&#x4E9B;&#x5185;&#x5BB9;&#xFF0C;&#x5426;&#x5219;&#x8BF7;&#x6C42;&#x4F1A;&#x5904;&#x4E8E;&#x6302;&#x8D77;&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x4E86;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>hello world</code> &#xFF0C;&#x540C;&#x65F6;&#x5728;&#x8FD4;&#x56DE;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x91CC;&#x5199;&#x5165;&#x8FD4;&#x56DE;&#x7684;&#x72B6;&#x6001;&#x7801;&#x4E3A; 200&#xFF0C;&#x5373;&#x6210;&#x529F;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x7EAF;&#x6587;&#x672C;&#x3002;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x540E;&#x53F0;&#x4EE3;&#x7801;&#x505A;&#x4E86;&#x4FEE;&#x6539;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;&#x6765;&#x6267;&#x884C;&#x6700;&#x65B0;&#x4EE3;&#x7801;&#x3002;</p>
+</blockquote>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

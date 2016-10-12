@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li class="active"><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    命令行中体验nodejs
+">
+    命令行中体验nodejs
+</a></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <p></p><h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    &#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x4F53;&#x9A8C;nodejs
+">
+    &#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x4F53;&#x9A8C;nodejs
+ <a href="#t0
+    &#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x4F53;&#x9A8C;nodejs
+"> # </a></h1>
+Nodejs&#x3000;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x4E8E;&#x672C;&#x5730;&#x7684;&#x3000;JS&#x3000;&#x7684;&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x8131;&#x79BB;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x6765;&#x4F7F;&#x7528;&#x3000;JS&#x3000;&#xFF0E;Node.js&#x3000;&#x5C31;&#x662F;&#x6252;&#x4E86;&#x76AE;&#x7684;&#x3000;chrome.<p></p>
+<p>nodejs &#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; Chrome V8&#x5F15;&#x64CE;&#x7684; javascript &#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x5199;&#x7684; js &#x4EE3;&#x7801;&#x662F;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x8131;&#x79BB;&#x4E86;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x65E0;&#x6CD5;&#x8FD0;&#x884C;&#xFF0C;&#x8FD9;&#x91CC;nodejs &#x63D0;&#x4F9B;&#x4E86; javascript &#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x4F7F;&#x5F97; js &#x80FD;&#x591F;&#x8131;&#x79BB;&#x6D4F;&#x89C8;&#x5668;&#x8FD0;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x5229;&#x7528; js &#x5C31;&#x53EF;&#x4EE5;&#x6765;&#x5199;&#x540E;&#x5929;&#x7B49;&#x7B49;&#x5176;&#x4ED6;&#x4E8B;&#x60C5;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A; nodejs &#x662F;&#x57FA;&#x4E8E; Chrome V8&#x5F15;&#x64CE;&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x3001;&#x975E;&#x963B;&#x585E;&#x5F0F; I/O &#x7684;&#x6A21;&#x578B;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x8FD0;&#x884C;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;&#x3002;</p>
+<p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6267;&#x884C; js &#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x90FD;&#x4E0D;&#x964C;&#x751F;&#xFF0C;&#x76F4;&#x63A5;&#x6253;&#x5F00;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x5C31;&#x53EF;&#x4EE5;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x5982;&#x4F55;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6267;&#x884C; js &#x4EE3;&#x7801;&#x3002;</p>
+<pre><code class="lang-shell"># &#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x8F93;&#x5165; node &#x8FDB;&#x5165; node &#x73AF;&#x5883;
+node
+# &#x53EF;&#x4EE5;&#x770B;&#x5230;&#x547D;&#x4EE4;&#x884C;&#x53D8;&#x4E3A;&#x4E86;&#x4E00;&#x4E2A;&#x5C16;&#x62EC;&#x53F7;&#x5F00;&#x59CB;&#x7684;&#x8F93;&#x5165;&#x73AF;&#x5883;
+# &#x4E0B;&#x9762;&#x5C31;&#x8981;&#x8F93;&#x5165; js &#x4EE3;&#x7801;&#x4E86;
+&gt; var a = 1,b=2;function add(a,b){return a+b};add(a,b)
+# &#x56DE;&#x8F66;&#x6267;&#x884C;
+3
+</code></pre>
+<p>&#x662F;&#x4E0D;&#x662F;&#x5F88;&#x795E;&#x5947;&#xFF01;&#xFF01;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x533A;&#x522B;&#x3002;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6709;&#x5168;&#x5C40;&#x53D8;&#x91CF; <code>window,document</code>&#xFF0C;node &#x6CA1;&#x6709;&#xFF0C;&#x5B83;&#x6709;&#x81EA;&#x5DF1;&#x7279;&#x6B8A;&#x7684;&#x4E00;&#x4E9B;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x6BD4;&#x5982; <code>process</code>&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x53EF;&#x4EE5;&#x7528; node &#x76F4;&#x63A5;&#x6267;&#x884C;&#x6211;&#x4EEC;&#x7684;js&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-js">node example.js
+</code></pre>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

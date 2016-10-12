@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MengMeng</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MengMeng
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React专题</a><ul><li><a href="../../html/React专题/React基础知识.html">React基础知识</a></li><li><a href="../../html/React专题/React-router路由.html">React-router路由</a></li></ul></li><li><a href="#"><span></span>数据库</a><ul><li><a href="../../html/数据库/mongoose.html">mongoose</a></li><li><a href="../../html/数据库/mongodb数据库.html">mongodb数据库</a></li><li><a href="../../html/数据库/客户端操作数据库1.html">客户端操作数据库1</a></li><li><a href="../../html/数据库/客户端操作数据库2.html">客户端操作数据库2</a></li><li><a href="../../html/数据库/客户端操作数据库3.html">客户端操作数据库3</a></li></ul></li><li><a href="#"><span></span>部署项目</a><ul><li><a href="../../html/部署项目/部署项目.html">部署项目</a></li><li><a href="../../html/部署项目/局域网内模拟部署.html">局域网内模拟部署</a></li></ul></li><li><a href="#"><span></span>Nodejs基础</a><ul><li><a href="../../html/Nodejs基础/HTTP基础知识.html">HTTP基础知识</a></li><li><a href="../../html/Nodejs基础/Nodejs模块.html">Nodejs模块</a></li><li><a href="../../html/Nodejs基础/QueryString.html">QueryString</a></li><li><a href="../../html/Nodejs基础/URL.html">URL</a></li><li><a href="../../html/Nodejs基础/命令行中体验nodejs.html">命令行中体验nodejs</a></li><li><a href="../../html/Nodejs基础/起一个web服务器.html">起一个web服务器</a></li></ul></li><li><a href="#"><span></span>express</a><ul><li><a href="../../html/express/Express.html">Express</a></li></ul></li><li><a href="#"><span></span>基础知识</a><ul><li><a href="../../html/基础知识/ES6快速入门.html">ES6快速入门</a></li><li><a href="../../html/基础知识/Linux显示Git分支.html">Linux显示Git分支</a></li><li><a href="../../html/基础知识/Markdown.html">Markdown</a></li><li><a href="../../html/基础知识/NPM使用方法.html">NPM使用方法</a></li><li class="active"><a href="../../html/基础知识/Nodejs安装配置.html">Nodejs安装配置</a></li><li><a href="../../html/基础知识/bootstrap.html">bootstrap</a></li><li><a href="../../html/基础知识/material-ui.html">material-ui</a></li><li><a href="../../html/基础知识/webpack基础.html">webpack基础</a></li><li><a href="../../html/基础知识/基本shell命令使用.html">基本shell命令使用</a></li><li><a href="../../html/基础知识/Git和Github手册.html">Git和Github手册</a></li></ul></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://mengmeng183.github.io">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0
+    Node安装配置
+">
+    Node安装配置
+</a><ul><li><a href="#t1nvm 安装 node">nvm 安装 node</a><ul><li><a href="#t2安装 nvm">安装 nvm</a></li><li><a href="#t3安装 node">安装 node</a></li><li><a href="#t4设置默认 node 版本">设置默认 node 版本</a></li><li><a href="#t5配置 npm">配置 npm</a></li><li><a href="#t6安装nodemon">安装nodemon</a></li></ul></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    Node&#x5B89;&#x88C5;&#x914D;&#x7F6E;
+">
+    Node&#x5B89;&#x88C5;&#x914D;&#x7F6E;
+ <a href="#t0
+    Node&#x5B89;&#x88C5;&#x914D;&#x7F6E;
+"> # </a></h1>
+
+<p>&#x5B89;&#x88C5; node &#x7684;&#x65B9;&#x5F0F;&#x5F88;&#x591A;&#xFF0C;&#x8FD9;&#x91CC;&#x63A8;&#x8350;&#x7528; nvm &#x88C5; node&#x3002;</p>
+<h2 id="t1nvm &#x5B89;&#x88C5; node">nvm &#x5B89;&#x88C5; node <a href="#t1nvm &#x5B89;&#x88C5; node"> # </a></h2>
+<h3 id="t2&#x5B89;&#x88C5; nvm">&#x5B89;&#x88C5; nvm <a href="#t2&#x5B89;&#x88C5; nvm"> # </a></h3>
+<pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+</code></pre><p>&#x6267;&#x884C;&#x4E0A;&#x8FB9;&#x7684;&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x5B89;&#x88C5; nvm &#x4E86;&#x3002;</p>
+<h3 id="t3&#x5B89;&#x88C5; node">&#x5B89;&#x88C5; node <a href="#t3&#x5B89;&#x88C5; node"> # </a></h3>
+<pre><code>&#x67E5;&#x770B;&#x6709;&#x54EA;&#x4E9B;&#x7248;&#x672C;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;
+nvm ls-remote
+&#x5B89;&#x88C5;&#x7248;&#x672C; v5.10.1
+nvm install v5.10.1
+</code></pre><p>&#x8FD9;&#x6837;&#x5C31;&#x5B89;&#x88C5;&#x597D;&#x4E86; node &#xFF0C;&#x540C;&#x65F6; npm &#x9875;&#x5C31;&#x88C5;&#x597D;&#x4E86;&#x3002;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x6765;&#x68C0;&#x67E5;&#x4E0B;&#x672C;&#x5730;&#x7684; node &#xFF0C;npm &#x7248;&#x672C;&#x5427;&#x3002;</p>
+<pre><code>node -v
+npm -v
+</code></pre><p>&#x5982;&#x679C;&#x662F; windows &#x673A;&#x5668;&#x7684;&#x8BDD;&#xFF0C;&#x76F4;&#x63A5;&#x5230; node &#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x5BF9;&#x5E94;&#x7248;&#x672C;&#x7684;&#x8F6F;&#x4EF6;&#xFF0C;&#x53CC;&#x51FB;&#x5B89;&#x88C5;&#x5373;&#x53EF;&#x3002;</p>
+<h3 id="t4&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4; node &#x7248;&#x672C;">&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4; node &#x7248;&#x672C; <a href="#t4&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4; node &#x7248;&#x672C;"> # </a></h3>
+<p>&#x5229;&#x7528; nvm &#x53EF;&#x4EE5;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x5B89;&#x88C5;&#x591A;&#x4E2A;&#x7248;&#x672C; node &#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7075;&#x6D3B;&#x7684;&#x5207;&#x6362;&#x3002;&#x4E0B;&#x9762;&#x5C06; 5.10.1 &#x8FD9;&#x4E2A; node &#x7248;&#x672C;&#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x3002;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x8BED;&#x53E5;&#x5373;&#x53EF;&#x3002;&#x91CD;&#x542F; shell &#x4E4B;&#x540E;&#xFF0C;&#x6267;&#x884C; <code>node -v</code> &#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684; node &#x7248;&#x672C;&#x3002;</p>
+<pre><code>nvm alias defaule 5.10.1
+</code></pre><h3 id="t5&#x914D;&#x7F6E; npm">&#x914D;&#x7F6E; npm <a href="#t5&#x914D;&#x7F6E; npm"> # </a></h3>
+<p>npm &#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x7684;&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x5B89;&#x88C5;&#x3001;&#x5378;&#x8F7D;&#x3001;&#x66F4;&#x65B0;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x4F46;&#x662F;&#x9ED8;&#x8BA4;&#x7684; npm &#x4E0B;&#x8F7D;&#x5305;&#x662F;&#x4ECE;&#x56FD;&#x5916;&#x7684;&#x670D;&#x52A1;&#x5668;&#x83B7;&#x53D6;&#xFF0C;&#x901F;&#x5EA6;&#x5F88;&#x4E0D;&#x7ED9;&#x529B;&#xFF0C;&#x8FD9;&#x91CC;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x955C;&#x50CF;&#x3002;</p>
+<p>&#x5230;<a href="https://npm.taobao.org/">&#x6DD8;&#x5B9D;</a>&#x76F8;&#x5173;&#x9875;&#x9762;&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709;&#x591A;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x3002;&#x8FD9;&#x91CC;&#x63A8;&#x8350;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x5373;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x5B9A;&#x5236;&#x7684; <code>cnpm</code> &#x3002;</p>
+<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre><p>&#x597D;&#xFF0C;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528; <code>cnpm</code> &#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4E86;&#x3002;</p>
+<pre><code>&#x68C0;&#x67E5;&#x4E0B;&#x88C5;&#x597D;&#x4E86;&#x5417;
+cnpm -v
+&#x4E4B;&#x540E;&#x88C5;&#x5305;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;
+cnpm install gulp
+</code></pre><p>&#x8FD9;&#x6837;&#x901F;&#x5EA6;&#x662F;&#x4E0D;&#x5FEB;&#x591A;&#x4E86;&#x3002;</p>
+<h3 id="t6&#x5B89;&#x88C5;nodemon">&#x5B89;&#x88C5;nodemon <a href="#t6&#x5B89;&#x88C5;nodemon"> # </a></h3>
+<pre><code>npm install -g nodemon
+</code></pre><p>&#x4F7F;&#x7528;node&#x6BCF;&#x6B21;&#x505A;&#x4E86;&#x4FEE;&#x6539;&#x540E;&#x90FD;&#x8981;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;,&#x7528;nodemon&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4E0D;&#x7528;&#x91CD;&#x65B0;&#x542F;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x76F4;&#x63A5;&#x5237;&#x65B0;&#x9875;&#x9762;&#x5C31;&#x884C;&#x4E86;</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
