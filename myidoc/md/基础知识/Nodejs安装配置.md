@@ -6,6 +6,13 @@
 
 ## nvm 安装 node
 
+### 安装 curl
+
+```
+sudo apt-get update
+sudo apt-get install -y curl
+```
+
 ### 安装 nvm
 
 ```
@@ -14,6 +21,12 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | b
 
 执行上边的命令就可以安装 nvm 了。
 
+### 重新加载 nvm
+
+```
+source .bashrc
+```
+
 ### 安装 node
 
 ```
@@ -21,6 +34,11 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | b
 nvm ls-remote
 安装版本 v5.10.1
 nvm install v5.10.1
+```
+### 列出所有系统上的 node 版本
+
+```
+nvm ls
 ```
 
 这样就安装好了 node ，同时 npm 页就装好了。执行下面的命令来检查下本地的 node ，npm 版本吧。
